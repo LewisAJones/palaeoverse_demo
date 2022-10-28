@@ -1,0 +1,235 @@
+---
+title: | 
+  Into the palaeoverse
+subtitle: |
+  **A community-driven R package**
+  
+    [<img src="/images/logo.png" height="150"/>](/images/logo.png)
+author: | 
+  Lewis A. Jones 
+  
+  [LewisAlan.Jones@uvigo.es](mailto:LewisAlan.Jones@uvigo.es)
+  
+  [<img src="/images/MAPAS.png" height="40"/>](/images/MAPAS.png)
+  [<img src="/images/ERC.png" height="40"/>](/images/ERC.png)
+  [<img src="/images/UVIGO.png" height="40"/>](/images/UVIGO.png)
+affiliation: "Universidade de Vigo"
+execute:
+  echo: true
+  eval: false
+format: 
+  revealjs:
+    logo: "/images/logo.png"
+    footer: "[palaeoverse: a community-driven R package](https://palaeoverse.org)"
+    theme: default
+---
+
+## Development team {.smaller}
+
+::: columns
+::: {.column width="50%"}
+-   [Lewis A. Jones](mailto:LewisAlan.Jones@uvigo.es), Universidade de Vigo
+-   [William Gearty](mailto:willgearty@gmail.com), American Museum of Natural History
+-   [Bethany J. Allen](mailto:Bethany.Allen@bsse.ethz.ch), ETH Zürich
+-   [Kilian Eichenseer](mailto:kilian.eichenseer@gmail.com), Durham University
+-   [Christopher D. Dean](christopherdaviddean@gmail.com), University College London
+-   [Sofía Galván](mailto:sofia.galvan@uvigo.es), Universidade de Vigo
+-   [Miranta Kouvari](mailto:kouvari.miranta@gmail.com), University College London/Natural History Museum
+:::
+
+::: {.column width="50%"}
+-   [Pedro L. Godoy](mailto:pedrolorenagodoy@gmail.com), University of São Paulo/Stony Brook University
+-   [Cecily Nicholl](cecily.nicholl@ucl.ac.uk), University College London
+-   [Lucas Buffan](mailto:lucas.buffan@ens-lyon.fr), École Normale Supérieure de Lyon
+-   [Erin M. Dillon](mailto:erinmdillon@ucsb.edu), Smithsonian Tropical Research Institute/University of California
+-   [Alfio A. Chiarenza](mailto:a.chiarenza15@gmail.com), Universidade de Vigo
+:::
+:::
+
+## Funders {.smaller}
+
+-   European Union's Horizon 2020 research and innovation program (MAPAS project)
+    -   Grant number: 947921
+-   The Royal Society
+    -   Grant numbers: RF_ERE_210013, RGF_R1_180020, and RGF_EA_180318
+-   Juan de la Cierva-formación fellowship
+    -   FJC2020-044836-I / MCIN /AEI / 10.13039 /501100011033
+-   ETH+ Research Grant (BECCY project)
+-   FAPESP Postdoctoral fellowship
+    -   Grant number: 2022/05697-9
+-   Population Biology Program of Excellence Postdoctoral Fellowship (the University of Nebraska-Lincoln)
+-   Lerner-Gray Postdoctoral Research Fellowship (American Museum of Natural History)
+
+# Introduction
+*The long and the short of it...*
+
+## What is Palaeoverse?
+
+<center>
+
+*Palaeoverse is a project that aims to **bring the palaeobiology community together.***
+
+[<img src="/images/hands.png" height="120"/>](/images/hands.png)
+
+</center>
+
+-   **Twitter**: News and updates
+    -   [\@ThePalaeoverse](https://twitter.com/ThePalaeoverse)
+-   **Google Group**: A community space
+    -   <https://groups.google.com/g/palaeoverse>
+
+## What is the palaeoverse R package?
+
+<center>
+
+[<img src="/images/claddis.jpeg" height="150"/>](/images/claddis.jpeg) [<img src="/images/divdyn.png" height="150"/>](/images/divdyn.png)
+
+**palaeoverse** provides auxiliary functions to support data preparation and exploration.
+
+[<img src="/images/logo.png" height="150"/>](/images/logo.png)
+
+*Improve code readability, reusability and reproducibility.*
+
+</center>
+
+## What makes palaeoverse different?
+
+![](images/another-r-package.jpg){.absolute top="120" right="0" width="250" height="300"}
+
+::: columns
+::: {.column width="75%"}
+-   **Community-informed development**
+    -   Authors (*n* = 13)
+    -   Survey participants (*n* = 35)
+-   **Well-documented & peer-reviewed code**
+    -   Formal review process
+:::
+
+::: {.column width="25%"}
+:::
+:::
+
+<br>
+
+<center>
+
+### A community-driven package
+
+</center>
+
+------------------------------------------------------------------------
+
+![](images/chris-pratt.jpg){fig-align="center"}
+
+# Functionality
+*A whistle-stop tour of palaeoverse...*
+
+## What's available? {.smaller}
+
+::: columns
+::: {.column width="50%"}
+-   `axis_geo`
+-   `bin_lat`
+-   `bin_time`
+-   `data`
+-   `group_apply`
+-   `lat_bins`
+-   `look_up`
+-   `palaeorotate`
+:::
+
+::: {.column width="50%"}
+-   `phylo_check`
+-   `tax_check`
+-   `tax_expand_lat`
+-   `tax_expand_time`
+-   `tax_range_space`
+-   `tax_range_time`
+-   `tax_unique`
+-   `time_bins`
+:::
+:::
+
+## Expected input
+A lot of data, a lot of sources, and a lot of unique problems.
+
+![](images/gbdb.png){.absolute top=150 left=0 width="150" height="150"}
+![](images/pbdb.png){.absolute top=150 left=200 width="150" height="150"}
+![](images/pared.png){.absolute top=150 left=400 width="220" height="150"}
+![](images/neotoma.png){.absolute top=150 left=630 width="200" height="150"}
+![](images/neptune.png){.absolute top=150 left=850 width="200" height="150"}
+<br>
+<br>
+<br>
+<br>
+<center>
+  **Data structure, not source.**
+  
+  `occdf` $\rightarrow$ `function(x)` $\rightarrow$ `df`
+  
+  Occurrence dataframe\*
+</center>
+
+::: aside
+\*Exceptions do exist.
+:::
+
+# Getting started
+
+## Installation
+
+<br> **palaeoverse** can be installed from the CRAN using:
+
+```{r}
+install.packages("palaeoverse")
+```
+
+<br> The development version can be installed using devtools:
+
+```{r}
+devtools::install_github("palaeoverse-community/palaeoverse")
+```
+
+<br> Once installed, load the package in the usual manner:
+
+```{r}
+library(palaeoverse)
+```
+
+## Example datasets {.smaller}
+
+<br> Two example occurrence datasets are available in palaeoverse to support reproducible examples within the function documentation.
+
+The first provides a compilation of Carboniferous--Early Triassic tetrapods (*n* = 5270) from the [Paleobiology Database](https://paleobiodb.org/#/).
+
+```{r}
+# Get details on dataset
+?tetrapods
+# Load dataset
+data("tetrapods")
+```
+
+The second provides a compilation of fossil occurrences from Phanerozoic reefs (*n* = 4363) from the [PaleoReefs Database](https://www.paleo-reefs.pal.uni-erlangen.de).
+
+```{r}
+# Get details on dataset
+?reefs
+# Load dataset
+data("reefs")
+```
+
+# What's next?
+
+## More packages...
+
+Probably... but, not right now.
+
+## Palaeobiology Task View
+
+## Shiny App
+
+## Funding
+
+![](images/bean.jpeg){fig-align="center"}
+
+## Thank-you / Merci / Gracias / Danke / Buíochas / Obrigado / Grazie / Ευχαριστώ
