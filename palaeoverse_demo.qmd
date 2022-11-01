@@ -57,69 +57,45 @@ format:
 -   Population Biology Program of Excellence Postdoctoral Fellowship (the University of Nebraska-Lincoln)
 -   Lerner-Gray Postdoctoral Research Fellowship (American Museum of Natural History)
 
-# Introduction
+# Introduction {.smaller}
 
 *The long and the short of it* 📏*...*
 
 ## What is Palaeoverse?
 
+<br>
+
+<br>
+
 <center>
 
 *Palaeoverse is a project that aims to **bring the palaeobiology community together.***
 
-[<img src="/images/hands.png" height="120"/>](/images/hands.png)
+[<img src="/images/hands.png" height="150"/>](/images/hands.png)
 
 </center>
 
--   **Twitter**: News and updates
-    -   [\@ThePalaeoverse](https://twitter.com/ThePalaeoverse)
--   **Google Group**: A community space
-    -   <https://groups.google.com/g/palaeoverse>
-
-## What is the palaeoverse R package?
+## What is the palaeoverse R package? {.smaller}
 
 <center>
 
-[<img src="/images/claddis.jpeg" height="150"/>](/images/claddis.jpeg) [<img src="/images/divdyn.png" height="150"/>](/images/divdyn.png)
+[<img src="/images/claddis.jpeg" height="200"/>](/images/claddis.jpeg) [<img src="/images/divdyn.png" height="200"/>](/images/divdyn.png)
 
 **palaeoverse** provides auxiliary functions to support data preparation and exploration.
 
-[<img src="/images/logo.png" height="150"/>](/images/logo.png)
+[<img src="/images/logo.png" height="200"/>](/images/logo.png)
 
 *Improve code readability, reusability and reproducibility.*
 
 </center>
 
-## What makes palaeoverse different?
+## What makes palaeoverse different? {.smaller}
 
-![](images/another-r-package.jpg){.absolute top="120" right="0" width="250" height="300"}
+![](images/another-r-package.jpg){fig-align="center" height=500}
 
-::: columns
-::: {.column width="75%"}
--   **Community-informed development**
-    -   Authors (*n* = 13)
-    -   Survey participants (*n* = 35)
--   **Well-documented & peer-reviewed code**
-    -   Formal review process
-:::
+## What makes palaeoverse different? {.smaller}
 
-::: {.column width="25%"}
-:::
-:::
-
-<br>
-
-<center>
-
-### A community-driven package
-
-<https://palaeoverse.org>
-
-</center>
-
-## What makes palaeoverse different?
-
-![](images/chris-pratt.jpg){.absolute top="120" right="0" width="260" height="175"}
+![](images/chris-pratt.jpg){.absolute top="120" right="50" width="450" height="300"}
 
 ::: columns
 ::: {.column width="75%"}
@@ -136,11 +112,13 @@ format:
 
 <br>
 
+<br>
+
 <center>
 
 ### A community-driven package
 
-<https://palaeoverse.org>
+<http://www.palaeoverse.org>
 
 </center>
 
@@ -174,11 +152,14 @@ format:
 :::
 :::
 
-## Expected input
+## Expected input {.smaller}
 
 A lot of data, a lot of sources, and a lot of unique problems.
 
 ![](images/gbdb.png){.absolute top="150" left="0" width="150" height="150"} ![](images/pbdb.png){.absolute top="150" left="200" width="150" height="150"} ![](images/pared.png){.absolute top="150" left="400" width="220" height="150"} ![](images/neotoma.png){.absolute top="150" left="630" width="200" height="150"} ![](images/neptune.png){.absolute top="150" left="850" width="200" height="150"} <br> <br> <br> <br>
+<br>
+
+<br>
 
 <center>
 
@@ -255,6 +236,7 @@ Two reference datasets are available.
 Geological Time Scale 2012 & 2020 (Gradstein et al. 2012, 2020).
 
 ```{r}
+#| code-fold: true
 #| collapse: true
 # Get details on dataset
 ?GTS2012
@@ -262,6 +244,8 @@ Geological Time Scale 2012 & 2020 (Gradstein et al. 2012, 2020).
 # Load dataset
 data("GTS2012")
 data("GTS2020")
+# Increase output width
+options(width = 120)
 # Print first few rows
 head(GTS2012, n = 3)
 head(GTS2020, n = 3)
@@ -269,8 +253,10 @@ head(GTS2020, n = 3)
 
 ## Stratigraphic time bins {.smaller}
 
-```{r, fig.width = 8, fig.align = 'center'}
+```{r}
 #| collapse: true
+#| fig-width: 8
+#| fig-align: center
 # Get stage-level time bins
 bins <- time_bins(interval = "Phanerozoic", rank = "stage", plot = TRUE)
 ```
@@ -283,8 +269,10 @@ head(bins, n = 3)
 
 ## Near-equal-length time bins {.smaller}
 
-```{r, fig.width = 9, fig.align = 'center'}
+```{r}
 #| collapse: true
+#| fig-width: 9
+#| fig-align: center
 # Get stage-level time bins
 bins <- time_bins(interval = "Phanerozoic", rank = "stage", size = 15, plot = TRUE)
 ```
@@ -295,7 +283,7 @@ bins <- time_bins(interval = "Phanerozoic", rank = "stage", size = 15, plot = TR
 head(bins, n = 3)
 ```
 
-## Occurrence binning (time) {.smaller}
+## Temporal occurrence binning {.smaller}
 
 Five temporal binning methods for age range data:
 
@@ -324,12 +312,14 @@ ex4 <- bin_time(occdf = occdf, bins = bins, method = "random", reps = 10)
 ex5 <- bin_time(occdf = occdf, bins = bins, method = "point", reps = 10)
 ```
 
-## Occurrence binning (latitude) {.smaller}
+## Latitudinal occurrence binning {.smaller}
 
 Generate and bin latitudinal data:
 
-```{r, fig.width = 8, fig.align = 'center'}
+```{r}
 #| collapse: true
+#| fig-width: 8
+#| fig-align: center
 # Generate latitudinal bins
 bins <- lat_bins(size = 10, plot = TRUE)
 ```
@@ -342,13 +332,15 @@ occdf <- reefs
 occdf <- bin_lat(occdf = occdf, bins = bins, lat = "lat")
 ```
 
-## Occurrence binning (space) {.smaller}
+## Spatial occurrence binning {.smaller}
 
 Generate and bin spatial data:
 
-```{r, fig.width = 8, fig.align = 'center'}
+```{r}
 #| collapse: true
-# Reduce data for plotting
+#| fig-width: 8
+#| fig-align: center
+# Get reef data
 occdf <- reefs[1:500, ]
 # Bin data using a hexagonal equal-area grid
 occdf <- bin_space(occdf = occdf, spacing = 250, plot = TRUE)
@@ -375,13 +367,15 @@ ex2 <- palaeorotate(occdf = occdf, method = "grid")
 # Estimate palaeocoordinates and uncertainty using reconstruction files
 ex3 <- palaeorotate(occdf = occdf, method = "grid", uncertainty = TRUE)
 
+# Increase output width
+options(width = 400)
 # Get first few rows
 head(ex3)
 ```
 
-## Taxon-related features {.smaller}
+## Taxonomic spell check {.smaller}
 
-Taxonomic spell check:
+Identify and count potential spelling variations of the same taxon:
 
 ```{r}
 #| code-fold: true
@@ -410,7 +404,7 @@ In this example dataset:
 -   Varanops belongs to the Varanopidae
 -   Varanopus belongs to the Captorhinidae
 
-## Taxon-related features {.smaller}
+## Unique taxa {.smaller}
 
 Identifying unique taxa:
 
@@ -430,12 +424,14 @@ dinosaur_species <- tax_unique(occdf = occdf,
 head(dinosaur_species)
 ```
 
-## Taxon-related features {.smaller}
+## Temporal range {.smaller}
 
-Temporal range of taxa:
+Calculate and plot temporal range of taxa:
 
-```{r, fig.width = 8, fig.align = 'center'}
+```{r}
 #| collapse: true
+#| fig-width: 8
+#| fig-align: center
 # Grab tetrapod data
 occdf <- tetrapods
 # Remove NAs
@@ -444,9 +440,9 @@ occdf <- subset(occdf, !is.na(order))
 ex <- tax_range_time(occdf = occdf, name = "order", plot = TRUE)
 ```
 
-## Taxon-related features {.smaller}
+## Geographic range {.smaller}
 
-Geographic range of taxa:
+Four approaches to calculate geographic range of taxa:
 
 ```{r}
 #| code-fold: true
@@ -467,9 +463,9 @@ ex4 <- tax_range_space(occdf = occdf, name = "genus", method = "occ", spacing = 
 head(ex2)
 ```
 
-## Taxon-related features {.smaller}
+## Temporal pseudo-occurrences {.smaller}
 
-Convert range data to bin-level pseudo-occurrences (time):
+Convert range data to bin-level pseudo-occurrences:
 
 ```{r}
 #| code-fold: true
@@ -484,9 +480,9 @@ ex1 <- tax_expand_time(taxdf, max_ma = "max_age", min_ma = "min_age")
 head(ex1)
 ```
 
-## Taxon-related features {.smaller}
+## Latitudinal pseudo-occurrences {.smaller}
 
-Convert range data to bin-level pseudo-occurrences (latitude):
+Convert range data to bin-level pseudo-occurrences:
 
 ```{r}
 #| code-fold: true
@@ -509,9 +505,10 @@ Compare a list of taxonomic names to tip names in a user-provided phylogeny:
 
 ::: columns
 ::: {.column width="40%"}
-```{r, fig.width = 8}
+```{r}
 #| code-fold: true
 #| collapse: true
+#| fig-width: 8
 # Read in example tree of ceratopsians
 # from paleotree
 library(paleotree)
@@ -542,7 +539,7 @@ head(ex1)
 :::
 :::
 
-## Additional features {.smaller}
+## Interval linking {.smaller}
 
 Link and match interval names to the Geological Time Scale:
 
@@ -573,12 +570,14 @@ occdf <- look_up(occdf,
                 int_key = int_key)
 ```
 
-## Additional features {.smaller}
+## Plotting {.smaller}
 
 Add Geological Time Scale to plots:
 
-```{r, fig.width = 7, fig.align = 'center'}
+```{r}
 #| collapse: true
+#| fig-width: 7
+#| fig-align: center
 # Plot data
 plot(x = 541:0,
      xlab = "Time (Ma)", ylab = "User-variable",
@@ -588,7 +587,7 @@ plot(x = 541:0,
 axis_geo(side = 1, intervals = "periods")
 ```
 
-## Additional features {.smaller}
+## Wrapper {.smaller}
 
 Run functions over groups of data:
 
@@ -624,7 +623,7 @@ ex3 <- group_apply(occdf = occdf,
 
 *Onwards and upwards* 🏔️*...*
 
-# What's next
+# What's next? {.smaller}
 
 - Palaeobiology CRAN Task View
 - Shiny App
@@ -639,9 +638,21 @@ ex3 <- group_apply(occdf = occdf,
 [<img src="/images/logo.png" height="150"/>](/images/logo.png)
 </center>
 
+::: columns
+::: {.column width="50%"}
+-   **Website**: General information
+    - [https://palaeoverse.org](https://palaeoverse.org)
 -   **Twitter**: News and updates
     -   [\@ThePalaeoverse](https://twitter.com/ThePalaeoverse)
 -   **Google Group**: A community space
     -   <https://groups.google.com/g/palaeoverse>
-- [LewisAlan.Jones@uvigo.es](mailto:LewisAlan.Jones@uvigo.es)
+:::
+
+::: {.column width="50%"}
+- **Point of contact**: General contact
+    - [LewisAlan.Jones@uvigo.es](mailto:LewisAlan.Jones@uvigo.es)
+- **Preprint**: Available now!
+    - [https://doi.org/10.31223/X5Z94Q](https://doi.org/10.31223/X5Z94Q)
+:::
+:::
 
