@@ -4,12 +4,12 @@ title: |
 subtitle: |
   A community-driven R package
   
-  [<img src="/images/logo.png" height="150"/>](/images/logo.png)
+  ![](images/logo.png){fig-align="center" height=150}
 author: | 
   [Lewis A. Jones](mailto:LewisAlan.Jones@uvigo.es), Universidade de Vigo
   
-  [<img src="/images/mapas.png" height="80"/>](/images/mapas.png)
-  [<img src="/images/erc.png" height="80"/>](/images/erc.png)
+  ![](images/mapas.png){fig-align="center" height=80}
+  ![](images/erc.png){fig-align="center" height=80}
 affiliation: "Universidade de Vigo"
 execute:
   echo: true
@@ -71,19 +71,19 @@ format:
 
 *Palaeoverse is a project that aims to **bring the palaeobiology community together.***
 
-[<img src="/images/hands.png" height="150"/>](/images/hands.png)
+![](images/hands.png){fig-align="center" height=150}
 
 </center>
 
 ## What is the palaeoverse R package? {.smaller}
 
 <center>
-
-[<img src="/images/claddis.jpeg" height="200"/>](/images/claddis.jpeg) [<img src="/images/divdyn.png" height="200"/>](/images/divdyn.png)
+![](images/claddis.jpeg){fig-align="center" height=200}
+![](images/divdyn.png){fig-align="center" height=200}
 
 **palaeoverse** provides auxiliary functions to support data preparation and exploration.
 
-[<img src="/images/logo.png" height="200"/>](/images/logo.png)
+![](images/logo.png){fig-align="center" height=200}
 
 *Improve code readability, reusability and reproducibility.*
 
@@ -118,7 +118,7 @@ format:
 
 ### A community-driven package
 
-<http://www.palaeoverse.org>
+[http://www.palaeoverse.org](http://www.palaeoverse.org)
 
 </center>
 
@@ -154,9 +154,16 @@ format:
 
 ## Expected input {.smaller}
 
-A lot of data, a lot of sources, and a lot of unique problems.
+A lot of data, a lot of sources, and a lot of unique features.
 
-![](images/gbdb.png){.absolute top="150" left="0" width="150" height="150"} ![](images/pbdb.png){.absolute top="150" left="200" width="150" height="150"} ![](images/pared.png){.absolute top="150" left="400" width="220" height="150"} ![](images/neotoma.png){.absolute top="150" left="630" width="200" height="150"} ![](images/neptune.png){.absolute top="150" left="850" width="200" height="150"} <br> <br> <br> <br>
+![](images/gbdb.png){.absolute top="150" left="0" width="150" height="150"} ![](images/pbdb.png){.absolute top="150" left="200" width="150" height="150"} ![](images/pared.png){.absolute top="150" left="400" width="220" height="150"} ![](images/neotoma.png){.absolute top="150" left="630" width="200" height="150"} ![](images/neptune.png){.absolute top="150" left="850" width="200" height="150"}
+
+<br>
+
+<br>
+
+<br>
+
 <br>
 
 <br>
@@ -181,19 +188,23 @@ Occurrence dataframe\*
 
 ## Installation {.smaller}
 
-<br> **palaeoverse** can be installed from the CRAN using:
+**palaeoverse** can be installed from the CRAN using:
 
 ```{r, eval = FALSE}
 install.packages("palaeoverse")
 ```
 
-<br> The development version can be installed using devtools:
+<br>
+
+The development version can be installed using devtools:
 
 ```{r, eval = FALSE}
 devtools::install_github("palaeoverse-community/palaeoverse")
 ```
 
-<br> Once installed, load the package in the usual manner:
+<br>
+
+Once installed, load the package in the usual manner:
 
 ```{r}
 library(palaeoverse)
@@ -476,6 +487,8 @@ taxdf <- data.frame(name = c("A", "B", "C"),
                     min_age = c(110, 20, 0))
 # Generate pseudo-occurrences
 ex1 <- tax_expand_time(taxdf, max_ma = "max_age", min_ma = "min_age")
+# Increase output width
+options(width = 200)
 # See first few rows
 head(ex1)
 ```
@@ -623,20 +636,20 @@ ex3 <- group_apply(occdf = occdf,
 
 *Onwards and upwards* 🏔️*...*
 
-# What's next? {.smaller}
+## What's next? {.smaller}
 
-- Palaeobiology CRAN Task View
-- Shiny App
+![](images/delorean.png){.absolute top="50" right="50" width="450" height="450"}
+
 - Workshops
 - Hackathon
+- Palaeobiology CRAN Task View
+- Shiny App
 - Meetings
 - Funding
 
 ## Thank-you / Merci / Gracias / Danke / Obrigado / Grazie / Ευχαριστώ {.smaller}
 
-<center>
-[<img src="/images/logo.png" height="150"/>](/images/logo.png)
-</center>
+![](images/logo.png){fig-align="center" height=150}
 
 ::: columns
 ::: {.column width="50%"}
@@ -645,7 +658,7 @@ ex3 <- group_apply(occdf = occdf,
 -   **Twitter**: News and updates
     -   [\@ThePalaeoverse](https://twitter.com/ThePalaeoverse)
 -   **Google Group**: A community space
-    -   <https://groups.google.com/g/palaeoverse>
+    -   [https://groups.google.com/g/palaeoverse](https://groups.google.com/g/palaeoverse)
 :::
 
 ::: {.column width="50%"}

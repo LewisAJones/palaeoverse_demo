@@ -384,9 +384,13 @@
 <section id="title-slide" class="center">
   <h1 class="title"><p>Into the palaeoverse</p></h1>
   <p class="subtitle"></p><p>A community-driven R package</p>
-<p><a href="/images/logo.png"><img src="/images/logo.png" height="150"></a></p><p></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/logo.png" height="150"></p>
+</figure>
+</div><p></p>
   <p class="author"></p><p><a href="mailto:LewisAlan.Jones@uvigo.es">Lewis A. Jones</a>, Universidade de Vigo</p>
-<p><a href="/images/mapas.png"><img src="/images/mapas.png" height="80"></a> <a href="/images/erc.png"><img src="/images/erc.png" height="80"></a></p><p></p>
+<p><img data-src="images/mapas.png" data-fig-align="center" height="80"> <img data-src="images/erc.png" data-fig-align="center" height="80"></p><p></p>
 </section>
 
 <section id="development-team" class="slide level2 smaller">
@@ -448,15 +452,23 @@
 <p><br></p>
 <center>
 <p><em>Palaeoverse is a project that aims to <strong>bring the palaeobiology community together.</strong></em></p>
-<p><a href="/images/hands.png"><img src="/images/hands.png" height="150"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/hands.png" height="150"></p>
+</figure>
+</div>
 </center>
 </section>
 <section id="what-is-the-palaeoverse-r-package" class="slide level2 smaller">
 <h2>What is the palaeoverse R package?</h2>
 <center>
-<p><a href="/images/claddis.jpeg"><img src="/images/claddis.jpeg" height="200"></a> <a href="/images/divdyn.png"><img src="/images/divdyn.png" height="200"></a></p>
+<p><img data-src="images/claddis.jpeg" data-fig-align="center" height="200"> <img data-src="images/divdyn.png" data-fig-align="center" height="200"></p>
 <p><strong>palaeoverse</strong> provides auxiliary functions to support data preparation and exploration.</p>
-<p><a href="/images/logo.png"><img src="/images/logo.png" height="200"></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/logo.png" height="200"></p>
+</figure>
+</div>
 <p><em>Improve code readability, reusability and reproducibility.</em></p>
 </center>
 </section>
@@ -492,7 +504,7 @@
 <p><br></p>
 <center>
 <h3 id="a-community-driven-package">A community-driven package</h3>
-<p><a href="http://www.palaeoverse.org" class="uri">http://www.palaeoverse.org</a></p>
+<p><a href="http://www.palaeoverse.org">http://www.palaeoverse.org</a></p>
 </center>
 </section></section>
 <section>
@@ -530,8 +542,12 @@
 </section>
 <section id="expected-input" class="slide level2 smaller">
 <h2>Expected input</h2>
-<p>A lot of data, a lot of sources, and a lot of unique problems.</p>
-<p><img data-src="images/gbdb.png" class="absolute" style="top: 150px; left: 0px; width: 150px; height: 150px; "> <img data-src="images/pbdb.png" class="absolute" style="top: 150px; left: 200px; width: 150px; height: 150px; "> <img data-src="images/pared.png" class="absolute" style="top: 150px; left: 400px; width: 220px; height: 150px; "> <img data-src="images/neotoma.png" class="absolute" style="top: 150px; left: 630px; width: 200px; height: 150px; "> <img data-src="images/neptune.png" class="absolute" style="top: 150px; left: 850px; width: 200px; height: 150px; "> <br> <br> <br> <br> <br></p>
+<p>A lot of data, a lot of sources, and a lot of unique features.</p>
+<p><img data-src="images/gbdb.png" class="absolute" style="top: 150px; left: 0px; width: 150px; height: 150px; "> <img data-src="images/pbdb.png" class="absolute" style="top: 150px; left: 200px; width: 150px; height: 150px; "> <img data-src="images/pared.png" class="absolute" style="top: 150px; left: 400px; width: 220px; height: 150px; "> <img data-src="images/neotoma.png" class="absolute" style="top: 150px; left: 630px; width: 200px; height: 150px; "> <img data-src="images/neptune.png" class="absolute" style="top: 150px; left: 850px; width: 200px; height: 150px; "></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
 <p><br></p>
 <center>
 <p><strong>Data structure, not source.</strong></p>
@@ -549,15 +565,17 @@
 </section>
 <section id="installation" class="slide level2 smaller">
 <h2>Installation</h2>
-<p><br> <strong>palaeoverse</strong> can be installed from the CRAN using:</p>
+<p><strong>palaeoverse</strong> can be installed from the CRAN using:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"palaeoverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br> The development version can be installed using devtools:</p>
+<p><br></p>
+<p>The development version can be installed using devtools:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palaeoverse-community/palaeoverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><br> Once installed, load the package in the usual manner:</p>
+<p><br></p>
+<p>Once installed, load the package in the usual manner:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(palaeoverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -865,15 +883,17 @@
 <span id="cb21-4"><a href="#cb21-4"></a>                    <span class="at">min_age =</span> <span class="fu">c</span>(<span class="dv">110</span>, <span class="dv">20</span>, <span class="dv">0</span>))</span>
 <span id="cb21-5"><a href="#cb21-5"></a><span class="co"># Generate pseudo-occurrences</span></span>
 <span id="cb21-6"><a href="#cb21-6"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">tax_expand_time</span>(taxdf, <span class="at">max_ma =</span> <span class="st">"max_age"</span>, <span class="at">min_ma =</span> <span class="st">"min_age"</span>)</span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="co"># See first few rows</span></span>
-<span id="cb21-8"><a href="#cb21-8"></a><span class="fu">head</span>(ex1)</span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="do">##   name max_age min_age   ext  orig interval_number     interval_name  rank max_ma  mid_ma min_ma duration_myr  font  colour</span></span>
-<span id="cb21-10"><a href="#cb21-10"></a><span class="do">## 1    C      30       0 FALSE FALSE               1        Meghalayan stage 0.0042 0.00210 0.0000       0.0042 black #FDEDEC</span></span>
-<span id="cb21-11"><a href="#cb21-11"></a><span class="do">## 2    C      30       0 FALSE FALSE               2     Northgrippian stage 0.0082 0.00620 0.0042       0.0040 black #FDECE4</span></span>
-<span id="cb21-12"><a href="#cb21-12"></a><span class="do">## 3    C      30       0 FALSE FALSE               3      Greenlandian stage 0.0117 0.00995 0.0082       0.0035 black #FEECDB</span></span>
-<span id="cb21-13"><a href="#cb21-13"></a><span class="do">## 4    C      30       0 FALSE FALSE               4 Upper Pleistocene stage 0.1290 0.07035 0.0117       0.1173 black #FFF2D3</span></span>
-<span id="cb21-14"><a href="#cb21-14"></a><span class="do">## 5    C      30       0 FALSE FALSE               5         Chibanian stage 0.7740 0.45150 0.1290       0.6450 black #FFF2C7</span></span>
-<span id="cb21-15"><a href="#cb21-15"></a><span class="do">## 6    C      30       0 FALSE FALSE               6         Calabrian stage 1.8000 1.28700 0.7740       1.0260 black #FFF2BA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="co"># Increase output width</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="fu">options</span>(<span class="at">width =</span> <span class="dv">200</span>)</span>
+<span id="cb21-9"><a href="#cb21-9"></a><span class="co"># See first few rows</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="fu">head</span>(ex1)</span>
+<span id="cb21-11"><a href="#cb21-11"></a><span class="do">##   name max_age min_age   ext  orig interval_number     interval_name  rank max_ma  mid_ma min_ma duration_myr  font  colour</span></span>
+<span id="cb21-12"><a href="#cb21-12"></a><span class="do">## 1    C      30       0 FALSE FALSE               1        Meghalayan stage 0.0042 0.00210 0.0000       0.0042 black #FDEDEC</span></span>
+<span id="cb21-13"><a href="#cb21-13"></a><span class="do">## 2    C      30       0 FALSE FALSE               2     Northgrippian stage 0.0082 0.00620 0.0042       0.0040 black #FDECE4</span></span>
+<span id="cb21-14"><a href="#cb21-14"></a><span class="do">## 3    C      30       0 FALSE FALSE               3      Greenlandian stage 0.0117 0.00995 0.0082       0.0035 black #FEECDB</span></span>
+<span id="cb21-15"><a href="#cb21-15"></a><span class="do">## 4    C      30       0 FALSE FALSE               4 Upper Pleistocene stage 0.1290 0.07035 0.0117       0.1173 black #FFF2D3</span></span>
+<span id="cb21-16"><a href="#cb21-16"></a><span class="do">## 5    C      30       0 FALSE FALSE               5         Chibanian stage 0.7740 0.45150 0.1290       0.6450 black #FFF2C7</span></span>
+<span id="cb21-17"><a href="#cb21-17"></a><span class="do">## 6    C      30       0 FALSE FALSE               6         Calabrian stage 1.8000 1.28700 0.7740       1.0260 black #FFF2BA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -1028,28 +1048,30 @@
 </details>
 </div>
 </section></section>
+<section>
 <section id="whats-next" class="title-slide slide level1 smaller center">
 <h1>What’s next?</h1>
 <p><em>Onwards and upwards</em> 🏔️<em>…</em></p>
 </section>
-
-<section>
-<section id="whats-next-1" class="title-slide slide level1 smaller center">
-<h1>What’s next?</h1>
+<section id="whats-next-1" class="slide level2 smaller">
+<h2>What’s next?</h2>
+<p><img data-src="images/delorean.png" class="absolute" style="top: 50px; right: 50px; width: 450px; height: 450px; "></p>
 <ul>
-<li>Palaeobiology CRAN Task View</li>
-<li>Shiny App</li>
 <li>Workshops</li>
 <li>Hackathon</li>
+<li>Palaeobiology CRAN Task View</li>
+<li>Shiny App</li>
 <li>Meetings</li>
 <li>Funding</li>
 </ul>
 </section>
 <section id="thank-you-merci-gracias-danke-obrigado-grazie-ευχαριστώ" class="slide level2 smaller">
 <h2>Thank-you / Merci / Gracias / Danke / Obrigado / Grazie / Ευχαριστώ</h2>
-<center>
-<a href="/images/logo.png"><img src="/images/logo.png" height="150"></a>
-</center>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/logo.png" height="150"></p>
+</figure>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -1063,7 +1085,7 @@
 </ul></li>
 <li><strong>Google Group</strong>: A community space
 <ul>
-<li><a href="https://groups.google.com/g/palaeoverse" class="uri">https://groups.google.com/g/palaeoverse</a></li>
+<li><a href="https://groups.google.com/g/palaeoverse">https://groups.google.com/g/palaeoverse</a></li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
