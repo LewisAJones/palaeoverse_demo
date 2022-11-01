@@ -491,11 +491,12 @@
 <p><br></p>
 <center>
 <h3 id="a-community-driven-package">A community-driven package</h3>
+<p><a href="https://palaeoverse.org" class="uri">https://palaeoverse.org</a></p>
 </center>
 </section>
 <section id="what-makes-palaeoverse-different-1" class="slide level2">
 <h2>What makes palaeoverse different?</h2>
-<p><img data-src="images/chris-pratt.jpg" class="absolute" style="top: 120px; right: 0px; width: 250px; height: 175px; "></p>
+<p><img data-src="images/chris-pratt.jpg" class="absolute" style="top: 120px; right: 0px; width: 260px; height: 175px; "></p>
 <div class="columns">
 <div class="column" style="width:75%;">
 <ul>
@@ -569,7 +570,7 @@
 <h1>Getting started</h1>
 <p><em>Let’s dive in 🤿…</em></p>
 </section>
-<section id="installation" class="slide level2">
+<section id="installation" class="slide level2 smaller">
 <h2>Installation</h2>
 <p><br> <strong>palaeoverse</strong> can be installed from the CRAN using:</p>
 <div class="cell">
@@ -584,7 +585,7 @@
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(palaeoverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="example-datasets" class="slide level2">
+<section id="example-datasets" class="slide level2 smaller">
 <h2>Example datasets</h2>
 <p>Two example occurrence datasets are available.</p>
 <p>Carboniferous–Early Triassic tetrapods (<em>n</em> = 5270, <a href="https://paleobiodb.org/#/">Paleobiology Database</a>).</p>
@@ -592,14 +593,36 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Get details on dataset</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>?tetrapods</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Load dataset</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">data</span>(<span class="st">"tetrapods"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">data</span>(<span class="st">"tetrapods"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># Available variables</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">colnames</span>(tetrapods)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "occurrence_no"     "collection_no"     "identified_name"  
+ [4] "identified_rank"   "accepted_name"     "accepted_rank"    
+ [7] "early_interval"    "late_interval"     "max_ma"           
+[10] "min_ma"            "phylum"            "class"            
+[13] "order"             "family"            "genus"            
+[16] "abund_value"       "abund_unit"        "lng"              
+[19] "lat"               "collection_name"   "cc"               
+[22] "formation"         "stratgroup"        "member"           
+[25] "zone"              "lithology1"        "environment"      
+[28] "pres_mode"         "taxon_environment" "motility"         
+[31] "life_habit"        "diet"             </code></pre>
+</div>
 </div>
 <p>Phanerozoic reef occurrences (<em>n</em> = 4363, <a href="https://www.paleo-reefs.pal.uni-erlangen.de">PaleoReefs Database</a>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Get details on dataset</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>?reefs</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># Load dataset</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">data</span>(<span class="st">"reefs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Get details on dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>?reefs</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co"># Load dataset</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">data</span>(<span class="st">"reefs"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co"># Available variables</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">colnames</span>(reefs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "r_number"   "name"       "formation"  "system"     "series"    
+ [6] "interval"   "biota_main" "biota_sec"  "lng"        "lat"       
+[11] "country"    "authors"    "title"      "year"      </code></pre>
+</div>
 </div>
 </section>
 <section id="reference-datasets" class="slide level2 smaller">
@@ -607,266 +630,492 @@
 <p>Two reference datasets are available.</p>
 <p>Geological Time Scale 2012 &amp; 2020 (Gradstein et al.&nbsp;2012, 2020).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Get details on dataset</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>?GTS2012</span>
-<span id="cb6-3"><a href="#cb6-3"></a>?GTS2020</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># Load dataset</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">data</span>(<span class="st">"GTS2012"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">data</span>(<span class="st">"GTS2020"</span>)</span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="fu">head</span>(GTS2012)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  interval_number      interval_name  rank max_ma mid_ma min_ma duration_myr
-1               1           Holocene stage 0.0117 0.0059 0.0000       0.0117
-2               2  Upper Pleistocene stage 0.1260 0.0688 0.0117       0.1143
-3               3 Middle Pleistocene stage 0.7810 0.4535 0.1260       0.6550
-4               4          Calabrian stage 1.8060 1.2935 0.7810       1.0250
-5               5           Gelasian stage 2.5880 2.1970 1.8060       0.7820
-6               6         Piacenzian stage 3.6000 3.0940 2.5880       1.0120
-   font  colour
-1 black #FDEDEC
-2 black #FFF2D3
-3 black #FFF2C7
-4 black #FFF2BA
-5 black #FFEDB3
-6 black #FFFFBF</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">head</span>(GTS2020)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  interval_number     interval_name  rank max_ma  mid_ma min_ma duration_myr
-1               1        Meghalayan stage 0.0042 0.00210 0.0000       0.0042
-2               2     Northgrippian stage 0.0082 0.00620 0.0042       0.0040
-3               3      Greenlandian stage 0.0117 0.00995 0.0082       0.0035
-4               4 Upper Pleistocene stage 0.1290 0.07035 0.0117       0.1173
-5               5         Chibanian stage 0.7740 0.45150 0.1290       0.6450
-6               6         Calabrian stage 1.8000 1.28700 0.7740       1.0260
-   font  colour
-1 black #FDEDEC
-2 black #FDECE4
-3 black #FEECDB
-4 black #FFF2D3
-5 black #FFF2C7
-6 black #FFF2BA</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Get details on dataset</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>?GTS2012</span>
+<span id="cb8-3"><a href="#cb8-3"></a>?GTS2020</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Load dataset</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">data</span>(<span class="st">"GTS2012"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">data</span>(<span class="st">"GTS2020"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># Print first few rows</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="fu">head</span>(GTS2012, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="do">##   interval_number      interval_name  rank max_ma mid_ma min_ma duration_myr</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="do">## 1               1           Holocene stage 0.0117 0.0059 0.0000       0.0117</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="do">## 2               2  Upper Pleistocene stage 0.1260 0.0688 0.0117       0.1143</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="do">## 3               3 Middle Pleistocene stage 0.7810 0.4535 0.1260       0.6550</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="do">##    font  colour</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="do">## 1 black #FDEDEC</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="do">## 2 black #FFF2D3</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="do">## 3 black #FFF2C7</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="fu">head</span>(GTS2020, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="do">##   interval_number interval_name  rank max_ma  mid_ma min_ma duration_myr  font</span></span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="do">## 1               1    Meghalayan stage 0.0042 0.00210 0.0000       0.0042 black</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="do">## 2               2 Northgrippian stage 0.0082 0.00620 0.0042       0.0040 black</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="do">## 3               3  Greenlandian stage 0.0117 0.00995 0.0082       0.0035 black</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="do">##    colour</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="do">## 1 #FDEDEC</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="do">## 2 #FDECE4</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="do">## 3 #FEECDB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="stratigraphic-time-bins" class="slide level2 smaller">
 <h2>Stratigraphic time bins</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Get stage-level time bins</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>bins <span class="ot">&lt;-</span> <span class="fu">time_bins</span>(<span class="at">interval =</span> <span class="st">"Phanerozoic"</span>, <span class="at">rank =</span> <span class="st">"stage"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Get stage-level time bins</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>bins <span class="ot">&lt;-</span> <span class="fu">time_bins</span>(<span class="at">interval =</span> <span class="st">"Phanerozoic"</span>, <span class="at">rank =</span> <span class="st">"stage"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Get first few rows</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">head</span>(bins, <span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    bin interval_name max_ma mid_ma min_ma duration_myr  rank
-102   1     Fortunian    541  535.0    529           12 stage
-101   2       Stage 2    529  525.0    521            8 stage
-100   3       Stage 3    521  517.5    514            7 stage</code></pre>
-</div>
+<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-7-1.png" width="768" class="r-stretch quarto-figure-center"><div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Get first few rows</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">head</span>(bins, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="do">##     bin interval_name max_ma mid_ma min_ma duration_myr  rank</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="do">## 102   1     Fortunian    541  535.0    529           12 stage</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="do">## 101   2       Stage 2    529  525.0    521            8 stage</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="do">## 100   3       Stage 3    521  517.5    514            7 stage</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="near-equal-length-time-bins" class="slide level2 smaller">
 <h2>Near-equal-length time bins</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Get stage-level time bins</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>bins <span class="ot">&lt;-</span> <span class="fu">time_bins</span>(<span class="at">interval =</span> <span class="st">"Phanerozoic"</span>, <span class="at">rank =</span> <span class="st">"stage"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Get stage-level time bins</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>bins <span class="ot">&lt;-</span> <span class="fu">time_bins</span>(<span class="at">interval =</span> <span class="st">"Phanerozoic"</span>, <span class="at">rank =</span> <span class="st">"stage"</span>, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Get first few rows</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">head</span>(bins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   bin max_ma mid_ma min_ma duration_myr grouping_rank
-36   1  541.0 535.00  529.0         12.0         stage
-35   2  529.0 521.50  514.0         15.0         stage
-34   3  514.0 507.25  500.5         13.5         stage
-33   4  500.5 492.95  485.4         15.1         stage
-32   5  485.4 476.35  467.3         18.1         stage
-31   6  467.3 460.15  453.0         14.3         stage
-                                     intervals
-36                                   Fortunian
-35                            Stage 3, Stage 2
-34                   Drumian, Wuliuan, Stage 4
-33 Stage 10, Jiangshanian, Paibian, Guzhangian
-32              Dapingian, Floian, Tremadocian
-31                       Sandbian, Darriwilian</code></pre>
-</div>
+<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-9-1.png" width="864" class="r-stretch quarto-figure-center"><div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Get first few rows</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">head</span>(bins, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="do">##    bin max_ma mid_ma min_ma duration_myr grouping_rank</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="do">## 36   1    541 535.00  529.0         12.0         stage</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="do">## 35   2    529 521.50  514.0         15.0         stage</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="do">## 34   3    514 507.25  500.5         13.5         stage</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="do">##                    intervals</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="do">## 36                 Fortunian</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="do">## 35          Stage 3, Stage 2</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="do">## 34 Drumian, Wuliuan, Stage 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="occurrence-binning-time" class="slide level2 smaller">
 <h2>Occurrence binning (time)</h2>
 <p>Five temporal binning methods for age range data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Use tetrapod example data</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>occdf <span class="ot">&lt;-</span> tetrapods</span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># Get stage-level time bins</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a>bins <span class="ot">&lt;-</span> <span class="fu">time_bins</span>(<span class="at">interval =</span> <span class="st">"Phanerozoic"</span>, <span class="at">rank =</span> <span class="st">"stage"</span>)</span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co"># Assign via midpoint age of fossil occurrence data</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"mid"</span>)</span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># Assign to all bins that age range covers</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"all"</span>)</span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="co"># Assign via majority overlap based on fossil occurrence age range</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>ex3 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"majority"</span>)</span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="co"># Randomly assign to overlapping bins based on fossil occurrence age range</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a>ex4 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">reps =</span> <span class="dv">10</span>)</span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co"># Randomly assign point estimates (uniform distribution) based on fossil occurrence age range</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a>ex5 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"point"</span>, <span class="at">reps =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Use tetrapod example data</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>occdf <span class="ot">&lt;-</span> tetrapods</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># Get stage-level time bins</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>bins <span class="ot">&lt;-</span> <span class="fu">time_bins</span>(<span class="at">interval =</span> <span class="st">"Phanerozoic"</span>, <span class="at">rank =</span> <span class="st">"stage"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a><span class="co"># Assign via midpoint age of fossil occurrence data</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"mid"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9"></a></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co"># Assign to all bins that age range covers</span></span>
+<span id="cb13-11"><a href="#cb13-11"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"all"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12"></a></span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="co"># Assign via majority overlap based on fossil occurrence age range</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a>ex3 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"majority"</span>)</span>
+<span id="cb13-15"><a href="#cb13-15"></a></span>
+<span id="cb13-16"><a href="#cb13-16"></a><span class="co"># Randomly assign to overlapping bins based on fossil occurrence age range</span></span>
+<span id="cb13-17"><a href="#cb13-17"></a>ex4 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"random"</span>, <span class="at">reps =</span> <span class="dv">10</span>)</span>
+<span id="cb13-18"><a href="#cb13-18"></a></span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="co"># Randomly assign point estimates (uniform distribution) based on fossil occurrence age range</span></span>
+<span id="cb13-20"><a href="#cb13-20"></a>ex5 <span class="ot">&lt;-</span> <span class="fu">bin_time</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">method =</span> <span class="st">"point"</span>, <span class="at">reps =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="occurrence-binning-latitude" class="slide level2 smaller">
 <h2>Occurrence binning (latitude)</h2>
 <p>Generate and bin latitudinal data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Generate latitudinal bins</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>bins <span class="ot">&lt;-</span> <span class="fu">lat_bins</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Generate latitudinal bins</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>bins <span class="ot">&lt;-</span> <span class="fu">lat_bins</span>(<span class="at">size =</span> <span class="dv">10</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Use reef example data</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>occdf <span class="ot">&lt;-</span> reefs</span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># Bin occurrences</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">bin_lat</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">lat =</span> <span class="st">"lat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-12-1.png" width="768" class="r-stretch quarto-figure-center"><div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Use reef example data</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>occdf <span class="ot">&lt;-</span> reefs</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="co"># Bin occurrences</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">bin_lat</span>(<span class="at">occdf =</span> occdf, <span class="at">bins =</span> bins, <span class="at">lat =</span> <span class="st">"lat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="occurrence-binning-space" class="slide level2 smaller">
 <h2>Occurrence binning (space)</h2>
 <p>Generate and bin spatial data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Reduce data for plotting</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>occdf <span class="ot">&lt;-</span> reefs[<span class="dv">1</span><span class="sc">:</span><span class="dv">500</span>, ]</span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co"># Bin data using a hexagonal equal-area grid</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">bin_space</span>(<span class="at">occdf =</span> occdf, <span class="at">spacing =</span> <span class="dv">250</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Reduce data for plotting</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>occdf <span class="ot">&lt;-</span> reefs[<span class="dv">1</span><span class="sc">:</span><span class="dv">500</span>, ]</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># Bin data using a hexagonal equal-area grid</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">bin_space</span>(<span class="at">occdf =</span> occdf, <span class="at">spacing =</span> <span class="dv">250</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-14-1.png" width="768" class="r-stretch quarto-figure-center"></section>
 <section id="palaeogeographic-reconstruction" class="slide level2 smaller">
 <h2>Palaeogeographic reconstruction</h2>
 <p>Palaeorotate fossil occurrences (eight models available):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Example with a few occurrences</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>occdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lng =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">103</span>, <span class="sc">-</span><span class="dv">66</span>),</span>
-<span id="cb20-3"><a href="#cb20-3"></a>                    <span class="at">lat =</span> <span class="fu">c</span>(<span class="dv">46</span>, <span class="dv">35</span>, <span class="sc">-</span><span class="dv">7</span>),</span>
-<span id="cb20-4"><a href="#cb20-4"></a>                    <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">88</span>, <span class="dv">125</span>, <span class="dv">200</span>))</span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="co"># Estimate palaeocoordinates using the GPlates API</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">palaeorotate</span>(<span class="at">occdf =</span> occdf, <span class="at">method =</span> <span class="st">"point"</span>)</span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="co"># Estimate palaeocoordinates using reconstruction files</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">palaeorotate</span>(<span class="at">occdf =</span> occdf, <span class="at">method =</span> <span class="st">"grid"</span>)</span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="co"># Estimate palaeocoordinates and uncertainty using reconstruction files</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>ex3 <span class="ot">&lt;-</span> <span class="fu">palaeorotate</span>(<span class="at">occdf =</span> occdf, <span class="at">method =</span> <span class="st">"grid"</span>, <span class="at">uncertainty =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb20-11"><a href="#cb20-11"></a>ex3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Example with a few occurrences</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>occdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">lng =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">103</span>, <span class="sc">-</span><span class="dv">66</span>),</span>
+<span id="cb17-3"><a href="#cb17-3"></a>                    <span class="at">lat =</span> <span class="fu">c</span>(<span class="dv">46</span>, <span class="dv">35</span>, <span class="sc">-</span><span class="dv">7</span>),</span>
+<span id="cb17-4"><a href="#cb17-4"></a>                    <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">88</span>, <span class="dv">125</span>, <span class="dv">200</span>))</span>
+<span id="cb17-5"><a href="#cb17-5"></a></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co"># Estimate palaeocoordinates using the GPlates API</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">palaeorotate</span>(<span class="at">occdf =</span> occdf, <span class="at">method =</span> <span class="st">"point"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="co"># Estimate palaeocoordinates using reconstruction files</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">palaeorotate</span>(<span class="at">occdf =</span> occdf, <span class="at">method =</span> <span class="st">"grid"</span>)</span>
+<span id="cb17-11"><a href="#cb17-11"></a></span>
+<span id="cb17-12"><a href="#cb17-12"></a><span class="co"># Estimate palaeocoordinates and uncertainty using reconstruction files</span></span>
+<span id="cb17-13"><a href="#cb17-13"></a>ex3 <span class="ot">&lt;-</span> <span class="fu">palaeorotate</span>(<span class="at">occdf =</span> occdf, <span class="at">method =</span> <span class="st">"grid"</span>, <span class="at">uncertainty =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb17-14"><a href="#cb17-14"></a></span>
+<span id="cb17-15"><a href="#cb17-15"></a><span class="co"># Get first few rows</span></span>
+<span id="cb17-16"><a href="#cb17-16"></a><span class="fu">head</span>(ex3)</span>
+<span id="cb17-17"><a href="#cb17-17"></a><span class="do">##    lng lat age     rot_model rot_age rot_lng rot_lat p_lng_MERDITH2021</span></span>
+<span id="cb17-18"><a href="#cb17-18"></a><span class="do">## 1    2  46  88 All available      88     1.5    46.5              6.75</span></span>
+<span id="cb17-19"><a href="#cb17-19"></a><span class="do">## 2 -103  35 125 All available     127  -103.5    35.5            -52.42</span></span>
+<span id="cb17-20"><a href="#cb17-20"></a><span class="do">## 3  -66  -7 200 All available     200   -66.5    -6.5            -33.60</span></span>
+<span id="cb17-21"><a href="#cb17-21"></a><span class="do">##   p_lat_MERDITH2021 p_lng_PALEOMAP p_lat_PALEOMAP p_lng_GOLONKA p_lat_GOLONKA</span></span>
+<span id="cb17-22"><a href="#cb17-22"></a><span class="do">## 1             37.72           2.96          36.56         14.05         38.68</span></span>
+<span id="cb17-23"><a href="#cb17-23"></a><span class="do">## 2             36.09         -54.67          34.24        -40.80         37.01</span></span>
+<span id="cb17-24"><a href="#cb17-24"></a><span class="do">## 3            -16.48         -33.52         -12.03        -21.57        -15.50</span></span>
+<span id="cb17-25"><a href="#cb17-25"></a><span class="do">##   p_lng_MULLER2019 p_lat_MULLER2019 p_lng_MULLER2016 p_lat_MULLER2016</span></span>
+<span id="cb17-26"><a href="#cb17-26"></a><span class="do">## 1            -3.57            31.50             1.06            39.44</span></span>
+<span id="cb17-27"><a href="#cb17-27"></a><span class="do">## 2           -55.14            21.67           -57.38            28.91</span></span>
+<span id="cb17-28"><a href="#cb17-28"></a><span class="do">## 3           -42.70           -21.31           -42.84           -15.89</span></span>
+<span id="cb17-29"><a href="#cb17-29"></a><span class="do">##   p_lng_SETON2012 p_lat_SETON2012 p_lng_MATTHEWS2016_pmag_ref</span></span>
+<span id="cb17-30"><a href="#cb17-30"></a><span class="do">## 1            5.18           41.31                       11.40</span></span>
+<span id="cb17-31"><a href="#cb17-31"></a><span class="do">## 2          -46.81           29.57                      -39.47</span></span>
+<span id="cb17-32"><a href="#cb17-32"></a><span class="do">## 3          -32.65          -14.92                      -22.13</span></span>
+<span id="cb17-33"><a href="#cb17-33"></a><span class="do">##   p_lat_MATTHEWS2016_pmag_ref p_lng_MATTHEWS2016_mantle_ref</span></span>
+<span id="cb17-34"><a href="#cb17-34"></a><span class="do">## 1                       36.59                          3.70</span></span>
+<span id="cb17-35"><a href="#cb17-35"></a><span class="do">## 2                       39.53                        -53.27</span></span>
+<span id="cb17-36"><a href="#cb17-36"></a><span class="do">## 3                      -16.26                        -32.46</span></span>
+<span id="cb17-37"><a href="#cb17-37"></a><span class="do">##   p_lat_MATTHEWS2016_mantle_ref range_p_lat max_dist</span></span>
+<span id="cb17-38"><a href="#cb17-38"></a><span class="do">## 1                         40.12        9.81  1788.74</span></span>
+<span id="cb17-39"><a href="#cb17-39"></a><span class="do">## 2                         32.83       17.86  2483.12</span></span>
+<span id="cb17-40"><a href="#cb17-40"></a><span class="do">## 3                         -2.03       19.28  2416.43</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="taxon-related-features" class="slide level2 smaller">
 <h2>Taxon-related features</h2>
 <p>Taxonomic spell check:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># load occurrence data</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">data</span>(<span class="st">"tetrapods"</span>)</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="co"># Check taxon names alphabetically</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">tax_check</span>(<span class="at">taxdf =</span> tetrapods, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">dis =</span> <span class="fl">0.05</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="co"># Get first few rows</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="fu">head</span>(ex1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  group     greater     lesser count_greater count_lesser
-1     D Dvinosaurus Dinosaurus            23            2
-2     V   Varanopus   Varanops             5            3</code></pre>
-</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># load occurrence data</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">data</span>(<span class="st">"tetrapods"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># Check taxon names alphabetically</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">tax_check</span>(<span class="at">taxdf =</span> tetrapods, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">dis =</span> <span class="fl">0.05</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co"># Get first few rows</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="fu">head</span>(ex1)</span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="do">##   group     greater     lesser count_greater count_lesser</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="do">## 1     D Dvinosaurus Dinosaurus            23            2</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="do">## 2     V   Varanopus   Varanops             5            3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Check taxon names by group</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">tax_check</span>(<span class="at">taxdf =</span> tetrapods, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">group =</span> <span class="st">"family"</span>, <span class="at">dis =</span> <span class="fl">0.05</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="co"># Get first few rows</span></span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="fu">head</span>(ex2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Check taxon names by group</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">tax_check</span>(<span class="at">taxdf =</span> tetrapods, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">group =</span> <span class="st">"family"</span>, <span class="at">dis =</span> <span class="fl">0.05</span>, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="co"># Get first few rows</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="fu">head</span>(ex2)</span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="do">## NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-</div>
-<p>In this example dataset: - Dinosaurus belongs to the Phthinosuchidae - Dvinosaurus belongs to the Dvinosauridae - Varanops belongs to the Varanopidae - Varanopus belongs to the Captorhinidae</p>
+<p>In this example dataset:</p>
+<ul>
+<li>Dinosaurus belongs to the Phthinosuchidae</li>
+<li>Dvinosaurus belongs to the Dvinosauridae</li>
+<li>Varanops belongs to the Varanopidae</li>
+<li>Varanopus belongs to the Captorhinidae</li>
+</ul>
 </section>
 <section id="taxon-related-features-1" class="slide level2 smaller">
 <h2>Taxon-related features</h2>
 <p>Identifying unique taxa:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Create dataframe</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>occdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">species =</span> <span class="fu">c</span>(<span class="st">"rex"</span>, <span class="st">"aegyptiacus"</span>, <span class="cn">NA</span>),</span>
-<span id="cb25-3"><a href="#cb25-3"></a>                    <span class="at">genus =</span> <span class="fu">c</span>(<span class="st">"Tyrannosaurus"</span>, <span class="st">"Spinosaurus"</span>, <span class="cn">NA</span>),</span>
-<span id="cb25-4"><a href="#cb25-4"></a>                    <span class="at">family =</span> <span class="fu">c</span>(<span class="st">"Tyrannosauridae"</span>, <span class="st">"Spinosauridae"</span>, <span class="st">"Diplodocidae"</span>))</span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="co"># Retain unique taxa</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>dinosaur_species <span class="ot">&lt;-</span> <span class="fu">tax_unique</span>(<span class="at">occdf =</span> occdf,</span>
-<span id="cb25-7"><a href="#cb25-7"></a>                               <span class="at">species =</span> <span class="st">"species"</span>,</span>
-<span id="cb25-8"><a href="#cb25-8"></a>                               <span class="at">genus =</span> <span class="st">"genus"</span>,</span>
-<span id="cb25-9"><a href="#cb25-9"></a>                               <span class="at">family =</span> <span class="st">"family"</span>,</span>
-<span id="cb25-10"><a href="#cb25-10"></a>                               <span class="at">resolution =</span> <span class="st">"species"</span>)</span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="fu">head</span>(occdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      species         genus          family
-1         rex Tyrannosaurus Tyrannosauridae
-2 aegyptiacus   Spinosaurus   Spinosauridae
-3        &lt;NA&gt;          &lt;NA&gt;    Diplodocidae</code></pre>
-</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Create dataframe</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>occdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">species =</span> <span class="fu">c</span>(<span class="st">"rex"</span>, <span class="st">"aegyptiacus"</span>, <span class="cn">NA</span>),</span>
+<span id="cb20-3"><a href="#cb20-3"></a>                    <span class="at">genus =</span> <span class="fu">c</span>(<span class="st">"Tyrannosaurus"</span>, <span class="st">"Spinosaurus"</span>, <span class="cn">NA</span>),</span>
+<span id="cb20-4"><a href="#cb20-4"></a>                    <span class="at">family =</span> <span class="fu">c</span>(<span class="st">"Tyrannosauridae"</span>, <span class="st">"Spinosauridae"</span>, <span class="st">"Diplodocidae"</span>))</span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="co"># Retain unique taxa</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>dinosaur_species <span class="ot">&lt;-</span> <span class="fu">tax_unique</span>(<span class="at">occdf =</span> occdf,</span>
+<span id="cb20-7"><a href="#cb20-7"></a>                               <span class="at">species =</span> <span class="st">"species"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8"></a>                               <span class="at">genus =</span> <span class="st">"genus"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9"></a>                               <span class="at">family =</span> <span class="st">"family"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10"></a>                               <span class="at">resolution =</span> <span class="st">"species"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="fu">head</span>(dinosaur_species)</span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="do">##            family         genus           genus_species             unique_name</span></span>
+<span id="cb20-13"><a href="#cb20-13"></a><span class="do">## 1   Spinosauridae   Spinosaurus Spinosaurus aegyptiacus Spinosaurus aegyptiacus</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a><span class="do">## 2 Tyrannosauridae Tyrannosaurus       Tyrannosaurus rex       Tyrannosaurus rex</span></span>
+<span id="cb20-15"><a href="#cb20-15"></a><span class="do">## 3    Diplodocidae          &lt;NA&gt;                    &lt;NA&gt;     Diplodocidae indet.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="taxon-related-features-2" class="slide level2 smaller">
 <h2>Taxon-related features</h2>
 <p>Temporal range of taxa:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Grab tetrapod data</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>occdf <span class="ot">&lt;-</span> tetrapods</span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="co"># Remove NAs</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(occdf, <span class="sc">!</span><span class="fu">is.na</span>(order))</span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="co"># Temporal range</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a>ex <span class="ot">&lt;-</span> <span class="fu">tax_range_time</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"order"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Grab tetrapod data</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>occdf <span class="ot">&lt;-</span> tetrapods</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="co"># Remove NAs</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(occdf, <span class="sc">!</span><span class="fu">is.na</span>(order))</span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="co"># Temporal range</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>ex <span class="ot">&lt;-</span> <span class="fu">tax_range_time</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"order"</span>, <span class="at">plot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-19-1.png" width="768" class="r-stretch quarto-figure-center"></section>
 <section id="taxon-related-features-3" class="slide level2 smaller">
 <h2>Taxon-related features</h2>
 <p>Geographic range of taxa:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Grab internal data</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>occdf <span class="ot">&lt;-</span> tetrapods</span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="co"># Remove NAs</span></span>
-<span id="cb28-4"><a href="#cb28-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(occdf, <span class="sc">!</span><span class="fu">is.na</span>(genus))</span>
-<span id="cb28-5"><a href="#cb28-5"></a><span class="co"># Convex hull</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"con"</span>)</span>
-<span id="cb28-7"><a href="#cb28-7"></a><span class="co"># Latitudinal range</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"lat"</span>)</span>
-<span id="cb28-9"><a href="#cb28-9"></a><span class="co"># Great Circle Distance</span></span>
-<span id="cb28-10"><a href="#cb28-10"></a>ex3 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"gcd"</span>)</span>
-<span id="cb28-11"><a href="#cb28-11"></a><span class="co"># Occupied grid cells</span></span>
-<span id="cb28-12"><a href="#cb28-12"></a>ex4 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"occ"</span>, <span class="at">spacing =</span> <span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Grab internal data</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>occdf <span class="ot">&lt;-</span> tetrapods</span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="co"># Remove NAs</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>occdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(occdf, <span class="sc">!</span><span class="fu">is.na</span>(genus))</span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="co"># Convex hull</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"con"</span>)</span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="co"># Latitudinal range</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"lat"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9"></a><span class="co"># Great Circle Distance</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>ex3 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"gcd"</span>)</span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="co"># Occupied grid cells</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a>ex4 <span class="ot">&lt;-</span> <span class="fu">tax_range_space</span>(<span class="at">occdf =</span> occdf, <span class="at">name =</span> <span class="st">"genus"</span>, <span class="at">method =</span> <span class="st">"occ"</span>, <span class="at">spacing =</span> <span class="dv">250</span>)</span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="co"># See first few rows</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="fu">head</span>(ex2)</span>
+<span id="cb22-15"><a href="#cb22-15"></a><span class="do">##                taxon taxon_id max_lat min_lat range_lat</span></span>
+<span id="cb22-16"><a href="#cb22-16"></a><span class="do">## 1           Abajudon        1 -10.624 -16.524       5.9</span></span>
+<span id="cb22-17"><a href="#cb22-17"></a><span class="do">## 2          Abdalodon        2 -31.925 -31.925       0.0</span></span>
+<span id="cb22-18"><a href="#cb22-18"></a><span class="do">## 3        Abyssomedon        3  34.776  34.776       0.0</span></span>
+<span id="cb22-19"><a href="#cb22-19"></a><span class="do">## 4   Acanthostomatops        4  51.000  51.000       0.0</span></span>
+<span id="cb22-20"><a href="#cb22-20"></a><span class="do">## 5          Acerastea        5 -24.833 -24.833       0.0</span></span>
+<span id="cb22-21"><a href="#cb22-21"></a><span class="do">## 6 Acerosodontosaurus        6 -24.000 -24.000       0.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="phylogeny-wrangling" class="slide level2">
+<section id="taxon-related-features-4" class="slide level2 smaller">
+<h2>Taxon-related features</h2>
+<p>Convert range data to bin-level pseudo-occurrences (time):</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Generate example df</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>taxdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb23-3"><a href="#cb23-3"></a>                    <span class="at">max_age =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">60</span>, <span class="dv">30</span>),</span>
+<span id="cb23-4"><a href="#cb23-4"></a>                    <span class="at">min_age =</span> <span class="fu">c</span>(<span class="dv">110</span>, <span class="dv">20</span>, <span class="dv">0</span>))</span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="co"># Generate pseudo-occurrences</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">tax_expand_time</span>(taxdf, <span class="at">max_ma =</span> <span class="st">"max_age"</span>, <span class="at">min_ma =</span> <span class="st">"min_age"</span>)</span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="co"># See first few rows</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="fu">head</span>(ex1)</span>
+<span id="cb23-9"><a href="#cb23-9"></a><span class="do">##   name max_age min_age   ext  orig interval_number     interval_name  rank</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a><span class="do">## 1    C      30       0 FALSE FALSE               1        Meghalayan stage</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a><span class="do">## 2    C      30       0 FALSE FALSE               2     Northgrippian stage</span></span>
+<span id="cb23-12"><a href="#cb23-12"></a><span class="do">## 3    C      30       0 FALSE FALSE               3      Greenlandian stage</span></span>
+<span id="cb23-13"><a href="#cb23-13"></a><span class="do">## 4    C      30       0 FALSE FALSE               4 Upper Pleistocene stage</span></span>
+<span id="cb23-14"><a href="#cb23-14"></a><span class="do">## 5    C      30       0 FALSE FALSE               5         Chibanian stage</span></span>
+<span id="cb23-15"><a href="#cb23-15"></a><span class="do">## 6    C      30       0 FALSE FALSE               6         Calabrian stage</span></span>
+<span id="cb23-16"><a href="#cb23-16"></a><span class="do">##   max_ma  mid_ma min_ma duration_myr  font  colour</span></span>
+<span id="cb23-17"><a href="#cb23-17"></a><span class="do">## 1 0.0042 0.00210 0.0000       0.0042 black #FDEDEC</span></span>
+<span id="cb23-18"><a href="#cb23-18"></a><span class="do">## 2 0.0082 0.00620 0.0042       0.0040 black #FDECE4</span></span>
+<span id="cb23-19"><a href="#cb23-19"></a><span class="do">## 3 0.0117 0.00995 0.0082       0.0035 black #FEECDB</span></span>
+<span id="cb23-20"><a href="#cb23-20"></a><span class="do">## 4 0.1290 0.07035 0.0117       0.1173 black #FFF2D3</span></span>
+<span id="cb23-21"><a href="#cb23-21"></a><span class="do">## 5 0.7740 0.45150 0.1290       0.6450 black #FFF2C7</span></span>
+<span id="cb23-22"><a href="#cb23-22"></a><span class="do">## 6 1.8000 1.28700 0.7740       1.0260 black #FFF2BA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="taxon-related-features-5" class="slide level2 smaller">
+<h2>Taxon-related features</h2>
+<p>Convert range data to bin-level pseudo-occurrences (latitude):</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Generate latitudinal bins</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>bins <span class="ot">&lt;-</span> <span class="fu">lat_bins</span>()</span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="co"># Generate example df</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>taxdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb24-5"><a href="#cb24-5"></a>                    <span class="at">max_lat =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">20</span>, <span class="sc">-</span><span class="dv">10</span>),</span>
+<span id="cb24-6"><a href="#cb24-6"></a>                    <span class="at">min_lat =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="sc">-</span><span class="dv">40</span>, <span class="sc">-</span><span class="dv">60</span>))</span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="co"># Generate pseudo-occurrences</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">tax_expand_lat</span>(<span class="at">taxdf =</span> taxdf, <span class="at">bins =</span> bins)</span>
+<span id="cb24-9"><a href="#cb24-9"></a><span class="co"># See first few rows</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="fu">head</span>(ex2)</span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="do">##   name max_lat min_lat bin max mid min</span></span>
+<span id="cb24-12"><a href="#cb24-12"></a><span class="do">## 1    A      60      20   4  60  55  50</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a><span class="do">## 2    A      60      20   5  50  45  40</span></span>
+<span id="cb24-14"><a href="#cb24-14"></a><span class="do">## 3    A      60      20   6  40  35  30</span></span>
+<span id="cb24-15"><a href="#cb24-15"></a><span class="do">## 4    A      60      20   7  30  25  20</span></span>
+<span id="cb24-16"><a href="#cb24-16"></a><span class="do">## 5    B      20     -40   8  20  15  10</span></span>
+<span id="cb24-17"><a href="#cb24-17"></a><span class="do">## 6    B      20     -40   9  10   5   0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="phylogeny-wrangling" class="slide level2 smaller">
 <h2>Phylogeny wrangling</h2>
+<p>Compare a list of taxonomic names to tip names in a user-provided phylogeny:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Read in example tree of ceratopsians</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="co"># from paleotree</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">library</span>(paleotree)</span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">data</span>(RaiaCopesRule)</span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co"># Set smaller margins for plotting</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">4</span>))</span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="co"># Plot tree</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="fu">plot</span>(ceratopsianTreeRaia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-23-1.png" width="768"></p>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Specify list of names</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>dinosaurs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Nasutoceratops_titusi"</span>, </span>
+<span id="cb26-3"><a href="#cb26-3"></a>               <span class="st">"Diabloceratops_eatoni"</span>,</span>
+<span id="cb26-4"><a href="#cb26-4"></a>               <span class="st">"Zuniceratops_christopheri"</span>,</span>
+<span id="cb26-5"><a href="#cb26-5"></a>               <span class="st">"Psittacosaurus_major"</span>)</span>
+<span id="cb26-6"><a href="#cb26-6"></a></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="co"># Table of taxon names in list, tree or both</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">phylo_check</span>(<span class="at">tree =</span> ceratopsianTreeRaia,</span>
+<span id="cb26-9"><a href="#cb26-9"></a>                   <span class="at">list =</span> dinosaurs)</span>
+<span id="cb26-10"><a href="#cb26-10"></a><span class="co"># Get first few rows</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a><span class="fu">head</span>(ex1)</span>
+<span id="cb26-12"><a href="#cb26-12"></a><span class="do">##                   taxon_name present_in_tree present_in_list</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="do">## 8      Diabloceratops_eatoni            TRUE            TRUE</span></span>
+<span id="cb26-14"><a href="#cb26-14"></a><span class="do">## 33      Psittacosaurus_major            TRUE            TRUE</span></span>
+<span id="cb26-15"><a href="#cb26-15"></a><span class="do">## 38     Nasutoceratops_titusi           FALSE            TRUE</span></span>
+<span id="cb26-16"><a href="#cb26-16"></a><span class="do">## 39 Zuniceratops_christopheri           FALSE            TRUE</span></span>
+<span id="cb26-17"><a href="#cb26-17"></a><span class="do">## 1       Centrosaurus_apertus            TRUE           FALSE</span></span>
+<span id="cb26-18"><a href="#cb26-18"></a><span class="do">## 2  Styracosaurus_albertensis            TRUE           FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
 </section>
-<section id="additional-features" class="slide level2">
+<section id="additional-features" class="slide level2 smaller">
 <h2>Additional features</h2>
+<p>Link and match interval names to the Geological Time Scale:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="do">## Link numeric age values</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="co"># create exemplary df</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>taxdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>),</span>
+<span id="cb27-4"><a href="#cb27-4"></a>                    <span class="at">early_interval =</span> <span class="fu">c</span>(<span class="st">"Maastrichtian"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>                                       <span class="st">"Campanian"</span>,</span>
+<span id="cb27-6"><a href="#cb27-6"></a>                                       <span class="st">"Sinemurian"</span>),</span>
+<span id="cb27-7"><a href="#cb27-7"></a>                    <span class="at">late_interval =</span> <span class="fu">c</span>(<span class="st">"Maastrichtian"</span>,</span>
+<span id="cb27-8"><a href="#cb27-8"></a>                                      <span class="st">"Campanian"</span>,</span>
+<span id="cb27-9"><a href="#cb27-9"></a>                                      <span class="st">"Bartonian"</span>))</span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="co"># assign stages and numerical ages</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a>taxdf <span class="ot">&lt;-</span> <span class="fu">look_up</span>(taxdf)</span>
+<span id="cb27-12"><a href="#cb27-12"></a></span>
+<span id="cb27-13"><a href="#cb27-13"></a><span class="do">## Use exemplary int_key</span></span>
+<span id="cb27-14"><a href="#cb27-14"></a><span class="co"># Get internal reef data</span></span>
+<span id="cb27-15"><a href="#cb27-15"></a>occdf <span class="ot">&lt;-</span> reefs</span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="co"># Get internal interval key</span></span>
+<span id="cb27-17"><a href="#cb27-17"></a>int_key <span class="ot">&lt;-</span> interval_key</span>
+<span id="cb27-18"><a href="#cb27-18"></a><span class="co"># assign stages and numerical ages</span></span>
+<span id="cb27-19"><a href="#cb27-19"></a>occdf <span class="ot">&lt;-</span> <span class="fu">look_up</span>(occdf,</span>
+<span id="cb27-20"><a href="#cb27-20"></a>                <span class="at">early_interval =</span> <span class="st">"interval"</span>,</span>
+<span id="cb27-21"><a href="#cb27-21"></a>                <span class="at">late_interval =</span> <span class="st">"interval"</span>,</span>
+<span id="cb27-22"><a href="#cb27-22"></a>                <span class="at">int_key =</span> int_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="additional-features-1" class="slide level2 smaller">
+<h2>Additional features</h2>
+<p>Add Geological Time Scale to plots:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Plot data</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="dv">541</span><span class="sc">:</span><span class="dv">0</span>,</span>
+<span id="cb28-3"><a href="#cb28-3"></a>     <span class="at">xlab =</span> <span class="st">"Time (Ma)"</span>, <span class="at">ylab =</span> <span class="st">"User-variable"</span>,</span>
+<span id="cb28-4"><a href="#cb28-4"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">541</span>, <span class="dv">0</span>), <span class="at">xaxt =</span> <span class="st">"n"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">5</span>)</span>
+<span id="cb28-5"><a href="#cb28-5"></a></span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="co"># Add Geological Time Scale</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="fu">axis_geo</span>(<span class="at">side =</span> <span class="dv">1</span>, <span class="at">intervals =</span> <span class="st">"periods"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="palaeoverse_demo_files/figure-revealjs/unnamed-chunk-26-1.png" width="672" class="r-stretch quarto-figure-center"></section>
+<section id="additional-features-2" class="slide level2 smaller">
+<h2>Additional features</h2>
+<p>Run functions over groups of data:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Get tetrapod data</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>occdf <span class="ot">&lt;-</span> tetrapods</span>
+<span id="cb29-3"><a href="#cb29-3"></a></span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="co"># Count number of occurrences from each country</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a>ex1 <span class="ot">&lt;-</span> <span class="fu">group_apply</span>(<span class="at">occdf =</span> occdf, <span class="at">group =</span> <span class="st">"cc"</span>, <span class="at">fun =</span> nrow)</span>
+<span id="cb29-6"><a href="#cb29-6"></a></span>
+<span id="cb29-7"><a href="#cb29-7"></a><span class="co"># Remove NA data</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a>occdf <span class="ot">&lt;-</span> <span class="fu">subset</span>(occdf, <span class="sc">!</span><span class="fu">is.na</span>(genus))</span>
+<span id="cb29-9"><a href="#cb29-9"></a></span>
+<span id="cb29-10"><a href="#cb29-10"></a><span class="co"># Unique genera per collection with group_apply and input arguments</span></span>
+<span id="cb29-11"><a href="#cb29-11"></a>ex2 <span class="ot">&lt;-</span> <span class="fu">group_apply</span>(<span class="at">occdf =</span> occdf,</span>
+<span id="cb29-12"><a href="#cb29-12"></a>                     <span class="at">group =</span> <span class="fu">c</span>(<span class="st">"collection_no"</span>),</span>
+<span id="cb29-13"><a href="#cb29-13"></a>                     <span class="at">fun =</span> tax_unique,</span>
+<span id="cb29-14"><a href="#cb29-14"></a>                     <span class="at">genus =</span> <span class="st">"genus"</span>,</span>
+<span id="cb29-15"><a href="#cb29-15"></a>                     <span class="at">family =</span> <span class="st">"family"</span>,</span>
+<span id="cb29-16"><a href="#cb29-16"></a>                     <span class="at">order =</span> <span class="st">"order"</span>,</span>
+<span id="cb29-17"><a href="#cb29-17"></a>                     <span class="at">class =</span> <span class="st">"class"</span>,</span>
+<span id="cb29-18"><a href="#cb29-18"></a>                     <span class="at">resolution =</span> <span class="st">"genus"</span>)</span>
+<span id="cb29-19"><a href="#cb29-19"></a></span>
+<span id="cb29-20"><a href="#cb29-20"></a><span class="co"># Use multiple variables (number of occurrences per collection &amp; formation)</span></span>
+<span id="cb29-21"><a href="#cb29-21"></a>ex3 <span class="ot">&lt;-</span> <span class="fu">group_apply</span>(<span class="at">occdf =</span> occdf,</span>
+<span id="cb29-22"><a href="#cb29-22"></a>                   <span class="at">group =</span> <span class="fu">c</span>(<span class="st">"collection_no"</span>, <span class="st">"formation"</span>),</span>
+<span id="cb29-23"><a href="#cb29-23"></a>                   <span class="at">fun =</span> nrow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section></section>
-<section>
-<section id="whats-next" class="title-slide slide level1 center">
+<section id="whats-next" class="title-slide slide level1 smaller center">
 <h1>What’s next?</h1>
+<p><em>Onwards and upwards</em> 🏔️<em>…</em></p>
+</section>
 
+<section>
+<section id="whats-next-1" class="title-slide slide level1 center">
+<h1>What’s next</h1>
+<ul>
+<li>Palaeobiology CRAN Task View</li>
+<li>Shiny App</li>
+<li>Workshops</li>
+<li>Hackathon</li>
+<li>Meetings</li>
+<li>Funding</li>
+</ul>
 </section>
-<section id="more-packages" class="slide level2">
-<h2>More packages…</h2>
-<p>Probably… but, not right now.</p>
-</section>
-<section id="palaeobiology-task-view" class="slide level2">
-<h2>Palaeobiology Task View</h2>
-</section>
-<section id="shiny-app" class="slide level2">
-<h2>Shiny App</h2>
-</section>
-<section id="funding" class="slide level2">
-<h2>Funding</h2>
-</section>
-<section id="thank-you-merci-gracias-danke-buíochas-obrigado-grazie-ευχαριστώ" class="slide level2">
-<h2>Thank-you / Merci / Gracias / Danke / Buíochas / Obrigado / Grazie / Ευχαριστώ</h2>
-
-<img src="/images/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<section id="thank-you-merci-gracias-danke-obrigado-grazie-ευχαριστώ" class="slide level2 smaller">
+<h2>Thank-you / Merci / Gracias / Danke / Obrigado / Grazie / Ευχαριστώ</h2>
+<center>
+<a href="/images/logo.png"><img src="/images/logo.png" height="150"></a>
+</center>
+<ul>
+<li><strong>Twitter</strong>: News and updates
+<ul>
+<li><a href="https://twitter.com/ThePalaeoverse">@ThePalaeoverse</a></li>
+</ul></li>
+<li><strong>Google Group</strong>: A community space
+<ul>
+<li><a href="https://groups.google.com/g/palaeoverse" class="uri">https://groups.google.com/g/palaeoverse</a></li>
+</ul></li>
+<li><a href="mailto:LewisAlan.Jones@uvigo.es">LewisAlan.Jones@uvigo.es</a></li>
+</ul>
+<p><img src="/images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
 <p><a href="https://palaeoverse.org">palaeoverse: a community-driven R package</a></p>
 </div>
 </section></section>

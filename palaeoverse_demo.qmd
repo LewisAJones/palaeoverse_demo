@@ -6,7 +6,7 @@ subtitle: |
   
   [<img src="/images/logo.png" height="150"/>](/images/logo.png)
 author: | 
-  [Lewis A. Jones ](mailto:LewisAlan.Jones@uvigo.es), Universidade de Vigo
+  [Lewis A. Jones](mailto:LewisAlan.Jones@uvigo.es), Universidade de Vigo
   
   [<img src="/images/mapas.png" height="80"/>](/images/mapas.png)
   [<img src="/images/erc.png" height="80"/>](/images/erc.png)
@@ -113,11 +113,13 @@ format:
 
 ### A community-driven package
 
+<https://palaeoverse.org>
+
 </center>
 
 ## What makes palaeoverse different?
 
-![](images/chris-pratt.jpg){.absolute top="120" right="0" width="250" height="175"}
+![](images/chris-pratt.jpg){.absolute top="120" right="0" width="260" height="175"}
 
 ::: columns
 ::: {.column width="75%"}
@@ -137,6 +139,8 @@ format:
 <center>
 
 ### A community-driven package
+
+<https://palaeoverse.org>
 
 </center>
 
@@ -194,7 +198,7 @@ Occurrence dataframe\*
 
 *Let's dive in 🤿...*
 
-## Installation
+## Installation {.smaller}
 
 <br> **palaeoverse** can be installed from the CRAN using:
 
@@ -214,140 +218,174 @@ devtools::install_github("palaeoverse-community/palaeoverse")
 library(palaeoverse)
 ```
 
-## Example datasets
+## Example datasets {.smaller}
 
 Two example occurrence datasets are available.
 
 Carboniferous--Early Triassic tetrapods (*n* = 5270, [Paleobiology Database](https://paleobiodb.org/#/)).
 
 ```{r}
+#| code-fold: true
+#| collapse: true
 # Get details on dataset
 ?tetrapods
 # Load dataset
 data("tetrapods")
+# Available variables
+colnames(tetrapods)
 ```
 
 Phanerozoic reef occurrences (*n* = 4363, [PaleoReefs Database](https://www.paleo-reefs.pal.uni-erlangen.de)).
 
 ```{r}
+#| code-fold: true
+#| collapse: true
 # Get details on dataset
 ?reefs
 # Load dataset
 data("reefs")
+# Available variables
+colnames(reefs)
 ```
 
-## Reference datasets { .smaller}
+## Reference datasets {.smaller}
 
 Two reference datasets are available.
 
 Geological Time Scale 2012 & 2020 (Gradstein et al. 2012, 2020).
 
 ```{r}
+#| collapse: true
 # Get details on dataset
 ?GTS2012
 ?GTS2020
 # Load dataset
 data("GTS2012")
 data("GTS2020")
-head(GTS2012)
-head(GTS2020)
+# Print first few rows
+head(GTS2012, n = 3)
+head(GTS2020, n = 3)
 ```
 
-## Stratigraphic time bins { .smaller}
+## Stratigraphic time bins {.smaller}
 
-```{r}
+```{r, fig.width = 8, fig.align = 'center'}
+#| collapse: true
 # Get stage-level time bins
 bins <- time_bins(interval = "Phanerozoic", rank = "stage", plot = TRUE)
 ```
 
 ```{r}
+#| collapse: true
 # Get first few rows
 head(bins, n = 3)
 ```
 
-## Near-equal-length time bins { .smaller}
+## Near-equal-length time bins {.smaller}
 
-```{r}
+```{r, fig.width = 9, fig.align = 'center'}
+#| collapse: true
 # Get stage-level time bins
 bins <- time_bins(interval = "Phanerozoic", rank = "stage", size = 15, plot = TRUE)
 ```
 
 ```{r}
+#| collapse: true
 # Get first few rows
-head(bins)
+head(bins, n = 3)
 ```
 
-## Occurrence binning (time) { .smaller}
+## Occurrence binning (time) {.smaller}
 
 Five temporal binning methods for age range data:
 
 ```{r}
+#| code-fold: true
+#| collapse: true
 # Use tetrapod example data
 occdf <- tetrapods
+
 # Get stage-level time bins
 bins <- time_bins(interval = "Phanerozoic", rank = "stage")
+
 # Assign via midpoint age of fossil occurrence data
 ex1 <- bin_time(occdf = occdf, bins = bins, method = "mid")
+
 # Assign to all bins that age range covers
 ex2 <- bin_time(occdf = occdf, bins = bins, method = "all")
+
 # Assign via majority overlap based on fossil occurrence age range
 ex3 <- bin_time(occdf = occdf, bins = bins, method = "majority")
+
 # Randomly assign to overlapping bins based on fossil occurrence age range
 ex4 <- bin_time(occdf = occdf, bins = bins, method = "random", reps = 10)
+
 # Randomly assign point estimates (uniform distribution) based on fossil occurrence age range
 ex5 <- bin_time(occdf = occdf, bins = bins, method = "point", reps = 10)
 ```
 
-## Occurrence binning (latitude) { .smaller}
+## Occurrence binning (latitude) {.smaller}
 
 Generate and bin latitudinal data:
 
-```{r}
+```{r, fig.width = 8, fig.align = 'center'}
+#| collapse: true
 # Generate latitudinal bins
 bins <- lat_bins(size = 10, plot = TRUE)
 ```
 
 ```{r}
+#| collapse: true
 # Use reef example data
 occdf <- reefs
 # Bin occurrences
 occdf <- bin_lat(occdf = occdf, bins = bins, lat = "lat")
 ```
 
-## Occurrence binning (space) { .smaller}
+## Occurrence binning (space) {.smaller}
 
 Generate and bin spatial data:
 
-```{r}
+```{r, fig.width = 8, fig.align = 'center'}
+#| collapse: true
 # Reduce data for plotting
 occdf <- reefs[1:500, ]
 # Bin data using a hexagonal equal-area grid
 occdf <- bin_space(occdf = occdf, spacing = 250, plot = TRUE)
 ```
 
-## Palaeogeographic reconstruction { .smaller}
+## Palaeogeographic reconstruction {.smaller}
 
 Palaeorotate fossil occurrences (eight models available):
 
-```{r, eval = FALSE}
+```{r}
+#| code-fold: true
+#| collapse: true
 # Example with a few occurrences
 occdf <- data.frame(lng = c(2, -103, -66),
                     lat = c(46, 35, -7),
                     age = c(88, 125, 200))
+
 # Estimate palaeocoordinates using the GPlates API
 ex1 <- palaeorotate(occdf = occdf, method = "point")
+
 # Estimate palaeocoordinates using reconstruction files
 ex2 <- palaeorotate(occdf = occdf, method = "grid")
+
 # Estimate palaeocoordinates and uncertainty using reconstruction files
 ex3 <- palaeorotate(occdf = occdf, method = "grid", uncertainty = TRUE)
-ex3
+
+# Get first few rows
+head(ex3)
 ```
 
-## Taxon-related features { .smaller}
+## Taxon-related features {.smaller}
 
 Taxonomic spell check:
 
 ```{r}
+#| code-fold: true
+#| collapse: true
 # load occurrence data
 data("tetrapods")
 # Check taxon names alphabetically
@@ -356,8 +394,9 @@ ex1 <- tax_check(taxdf = tetrapods, name = "genus", dis = 0.05, verbose = FALSE)
 head(ex1)
 ```
 
-
 ```{r}
+#| code-fold: true
+#| collapse: true
 # Check taxon names by group
 ex2 <- tax_check(taxdf = tetrapods, name = "genus", group = "family", dis = 0.05, verbose = FALSE)
 # Get first few rows
@@ -365,16 +404,19 @@ head(ex2)
 ```
 
 In this example dataset:
-- Dinosaurus belongs to the Phthinosuchidae
-- Dvinosaurus belongs to the Dvinosauridae
-- Varanops belongs to the Varanopidae
-- Varanopus belongs to the Captorhinidae
 
-## Taxon-related features { .smaller}
+-   Dinosaurus belongs to the Phthinosuchidae
+-   Dvinosaurus belongs to the Dvinosauridae
+-   Varanops belongs to the Varanopidae
+-   Varanopus belongs to the Captorhinidae
+
+## Taxon-related features {.smaller}
 
 Identifying unique taxa:
 
 ```{r}
+#| code-fold: true
+#| collapse: true
 # Create dataframe
 occdf <- data.frame(species = c("rex", "aegyptiacus", NA),
                     genus = c("Tyrannosaurus", "Spinosaurus", NA),
@@ -385,14 +427,15 @@ dinosaur_species <- tax_unique(occdf = occdf,
                                genus = "genus",
                                family = "family",
                                resolution = "species")
-head(occdf)
+head(dinosaur_species)
 ```
 
-## Taxon-related features { .smaller}
+## Taxon-related features {.smaller}
 
 Temporal range of taxa:
 
-```{r}
+```{r, fig.width = 8, fig.align = 'center'}
+#| collapse: true
 # Grab tetrapod data
 occdf <- tetrapods
 # Remove NAs
@@ -401,11 +444,13 @@ occdf <- subset(occdf, !is.na(order))
 ex <- tax_range_time(occdf = occdf, name = "order", plot = TRUE)
 ```
 
-## Taxon-related features { .smaller}
+## Taxon-related features {.smaller}
 
 Geographic range of taxa:
 
 ```{r}
+#| code-fold: true
+#| collapse: true
 # Grab internal data
 occdf <- tetrapods
 # Remove NAs
@@ -418,22 +463,185 @@ ex2 <- tax_range_space(occdf = occdf, name = "genus", method = "lat")
 ex3 <- tax_range_space(occdf = occdf, name = "genus", method = "gcd")
 # Occupied grid cells
 ex4 <- tax_range_space(occdf = occdf, name = "genus", method = "occ", spacing = 250)
+# See first few rows
+head(ex2)
 ```
 
-## Phylogeny wrangling
+## Taxon-related features {.smaller}
 
-## Additional features
+Convert range data to bin-level pseudo-occurrences (time):
 
-# What's next?
+```{r}
+#| code-fold: true
+#| collapse: true
+# Generate example df
+taxdf <- data.frame(name = c("A", "B", "C"),
+                    max_age = c(150, 60, 30),
+                    min_age = c(110, 20, 0))
+# Generate pseudo-occurrences
+ex1 <- tax_expand_time(taxdf, max_ma = "max_age", min_ma = "min_age")
+# See first few rows
+head(ex1)
+```
 
-## More packages...
+## Taxon-related features {.smaller}
 
-Probably... but, not right now.
+Convert range data to bin-level pseudo-occurrences (latitude):
 
-## Palaeobiology Task View
+```{r}
+#| code-fold: true
+#| collapse: true
+# Generate latitudinal bins
+bins <- lat_bins()
+# Generate example df
+taxdf <- data.frame(name = c("A", "B", "C"),
+                    max_lat = c(60, 20, -10),
+                    min_lat = c(20, -40, -60))
+# Generate pseudo-occurrences
+ex2 <- tax_expand_lat(taxdf = taxdf, bins = bins)
+# See first few rows
+head(ex2)
+```
 
-## Shiny App
+## Phylogeny wrangling {.smaller}
 
-## Funding
+Compare a list of taxonomic names to tip names in a user-provided phylogeny:
 
-## Thank-you / Merci / Gracias / Danke / Buíochas / Obrigado / Grazie / Ευχαριστώ
+::: columns
+::: {.column width="40%"}
+```{r, fig.width = 8}
+#| code-fold: true
+#| collapse: true
+# Read in example tree of ceratopsians
+# from paleotree
+library(paleotree)
+data(RaiaCopesRule)
+# Set smaller margins for plotting
+par(mar = rep(0, 4))
+# Plot tree
+plot(ceratopsianTreeRaia)
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| code-fold: true
+#| collapse: true
+# Specify list of names
+dinosaurs <- c("Nasutoceratops_titusi", 
+               "Diabloceratops_eatoni",
+               "Zuniceratops_christopheri",
+               "Psittacosaurus_major")
+
+# Table of taxon names in list, tree or both
+ex1 <- phylo_check(tree = ceratopsianTreeRaia,
+                   list = dinosaurs)
+# Get first few rows
+head(ex1)
+```
+:::
+:::
+
+## Additional features {.smaller}
+
+Link and match interval names to the Geological Time Scale:
+
+```{r}
+#| code-fold: true
+#| collapse: true
+## Link numeric age values
+# create exemplary df
+taxdf <- data.frame(name = c("A", "B", "C"),
+                    early_interval = c("Maastrichtian",
+                                       "Campanian",
+                                       "Sinemurian"),
+                    late_interval = c("Maastrichtian",
+                                      "Campanian",
+                                      "Bartonian"))
+# assign stages and numerical ages
+taxdf <- look_up(taxdf)
+
+## Use exemplary int_key
+# Get internal reef data
+occdf <- reefs
+# Get internal interval key
+int_key <- interval_key
+# assign stages and numerical ages
+occdf <- look_up(occdf,
+                early_interval = "interval",
+                late_interval = "interval",
+                int_key = int_key)
+```
+
+## Additional features {.smaller}
+
+Add Geological Time Scale to plots:
+
+```{r, fig.width = 7, fig.align = 'center'}
+#| collapse: true
+# Plot data
+plot(x = 541:0,
+     xlab = "Time (Ma)", ylab = "User-variable",
+     xlim = c(541, 0), xaxt = "n", type = "l", lwd = 5)
+
+# Add Geological Time Scale
+axis_geo(side = 1, intervals = "periods")
+```
+
+## Additional features {.smaller}
+
+Run functions over groups of data:
+
+```{r}
+#| code-fold: true
+#| collapse: true
+# Get tetrapod data
+occdf <- tetrapods
+
+# Count number of occurrences from each country
+ex1 <- group_apply(occdf = occdf, group = "cc", fun = nrow)
+
+# Remove NA data
+occdf <- subset(occdf, !is.na(genus))
+
+# Unique genera per collection with group_apply and input arguments
+ex2 <- group_apply(occdf = occdf,
+                     group = c("collection_no"),
+                     fun = tax_unique,
+                     genus = "genus",
+                     family = "family",
+                     order = "order",
+                     class = "class",
+                     resolution = "genus")
+
+# Use multiple variables (number of occurrences per collection & formation)
+ex3 <- group_apply(occdf = occdf,
+                   group = c("collection_no", "formation"),
+                   fun = nrow)
+```
+
+# What's next? {.smaller}
+
+*Onwards and upwards* 🏔️*...*
+
+# What's next
+
+- Palaeobiology CRAN Task View
+- Shiny App
+- Workshops
+- Hackathon
+- Meetings
+- Funding
+
+## Thank-you / Merci / Gracias / Danke / Obrigado / Grazie / Ευχαριστώ {.smaller}
+
+<center>
+[<img src="/images/logo.png" height="150"/>](/images/logo.png)
+</center>
+
+-   **Twitter**: News and updates
+    -   [\@ThePalaeoverse](https://twitter.com/ThePalaeoverse)
+-   **Google Group**: A community space
+    -   <https://groups.google.com/g/palaeoverse>
+- [LewisAlan.Jones@uvigo.es](mailto:LewisAlan.Jones@uvigo.es)
+
