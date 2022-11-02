@@ -62,7 +62,7 @@ Before I jump into the presentation, I wanted to first note that the development
 -   Lerner-Gray Postdoctoral Research Fellowship (American Museum of Natural History)
 
 ::: notes
-I would also like to say thank you to all their funding bodies which supported their contributions.
+I would also like to say thank you to all our funding bodies which supported our contributions during the development of the package.
 :::
 
 # Introduction {.smaller}
@@ -104,7 +104,7 @@ So, what exactly is palaeoverse? Well, the palaeoverse project aims to bring the
 ::: notes
 One such effort on this front is the palaeoverse R package.
 
-R and R packages are an integral part of quantitative research in palaeobiology today, with R code frequently used for data cleaning, analyses and data visualisation. In palaeobiology, these tools are frequently borrowed or repurposed from ecology (e.g. vegan and iNEXT). While some packages do exist to support fossil data analyses (e.g. claddis and divDyn), these are usually focused around analyses rather than data preparation or exploration.
+R and R packages are an integral part of quantitative research in palaeobiology today, with R code frequently used for data cleaning, analyses and data visualisation. In palaeobiology, these tools are frequently borrowed or repurposed from ecology (e.g. vegan and iNEXT). While packages exist to support fossil data analyses (e.g. claddis and divDyn), there is a lack of packages to support fossil data preparation or exploration. This results in the community over producing their own custom scripts.
 
 The palaeoverse package provides auxiliary functions to support data preparation and exploration, with the intention of improving code readability, reusability and reproducibility.
 :::
@@ -208,12 +208,16 @@ Occurrence dataframe\*
 :::
 
 ::: notes
-Functionality in palaeoverse was developed to be flexible and to work around the principle that most user's data would be stored in an occurrence dataframe. That is, each row represents a unique occurrence and each column represents a unique variable. The reason for focusing on data structure is is that many different databases exist, each with their own list of variables and quirks. We wanted to provide a package that could be used with data from many sources, not just popular databases, such as the PBDB.
+Functionality in palaeoverse was developed to be flexible and to work around the principle that most user's data would be stored in an occurrence dataframe. That is, each row represents a unique occurrence and each column represents a unique variable. The reason for focusing on data structure is that many different databases exist, each with their own list of variables and quirks. We wanted to provide a package that could be used with data from many sources, not just popular databases, such as the PBDB.
 :::
 
 # Getting started
 
 *Let's dive in 🤿...*
+
+::: notes
+As I've got limited time, I'll now give you a brief overview of all the functionality available in palaeoverse. I'll be happy to answer any questions at the end you might have, and I should note that we have extensive documentation available for each function covering the specifics of each.
+:::
 
 ## Installation {.smaller}
 
@@ -246,7 +250,7 @@ library(palaeoverse)
 :::
 
 ::: notes
-I am pleased to say that since last Monday, palaeoverse has been available on CRAN and can be installed using the default install.packages function. The development version can be installed using the devtools (or remotes) package. Once installed, the package can be loaded in the usual manner.
+I am pleased to say that since Monday, palaeoverse has been available on CRAN and can be installed using the default install.packages function. The development version can be installed using the devtools (or remotes) package. Once installed, the package can be loaded in the usual manner.
 :::
 
 ## Example datasets {.smaller}
@@ -305,7 +309,7 @@ head(GTS2020, n = 3)
 ```
 
 ::: notes
-Two reference datasets are also made available to the user in palaeoverse. These are the popular International Geological Time Scales 2012 & 2020 which are frequently used in research studies and by online databases. In palaeoverse, they are also used in several functions, which we will get on to now.
+Two reference datasets are also made available to the user in palaeoverse. These are the Geological Time Scales 2012 & 2020 which are frequently used in research studies and by online databases. In palaeoverse, they are also used in several functions, which we will get on to now.
 :::
 
 ## Stratigraphic time bins {.smaller}
@@ -326,7 +330,7 @@ head(bins, n = 3)
 ```
 
 ::: notes
-First up, we have the time bins function, which can be used to generate time bins based on the Geological Time Scale. The user can request different ranks of intervals such as stage, period, epoch, etc. The user can also call intervals based on interval names or an age range and plot the time bins if desired.
+First up, we have the time bins function, which can be used to extract time bins based on the Geological Time Scale. The user can request different ranks of intervals such as stage, period, epoch, etc. The user can also call intervals based on interval names or an age range and plot the time bins if desired.
 :::
 
 ## Near-equal-length time bins {.smaller}
@@ -347,7 +351,7 @@ head(bins, n = 3)
 ```
 
 ::: notes
-In the previous slide, you probably noticed from the plot that stratigraphic time bins can be extremely uneven in duration. Previous studies have tried to circumvent this by grouping stages together towards a target threshold to try and even out temporal duration for conducting analyses. palaeoverse provides an implementation of this that can be defined by the size argument.
+In the previous slide, you probably noticed from the plot that stratigraphic time bins can be extremely uneven in duration. Previous studies have tried to circumvent this by grouping stages together towards a target bin size to try and even out temporal duration for conducting analyses. palaeoverse provides an implementation of this that can be defined by the size argument.
 :::
 
 ## Temporal occurrence binning {.smaller}
@@ -383,7 +387,7 @@ Fossil occurrences are usually provided with an age range (a minimum and maximum
 
 The first method uses the midpoint age of the fossil occurrence to bin the occurrence.
 
-The second method bins the occurrence into every bin the age range covers
+The second method bins the occurrence into every bin the age range covers.
 
 The third method bins the occurrence into the bin the majority of the age range covers.
 
@@ -414,7 +418,7 @@ occdf <- bin_lat(occdf = occdf, bins = bins, lat = "lat")
 ```
 
 ::: notes
-As a community, we are often interested in latitudinal analyses, such as studying the latitudinal biodiversity gradient. palaeoverse provides functionality for generate latitudinal bins of a given size, and binning those occurrences into the respective bins.
+As a community, we are often interested in latitudinal analyses, such as studying the latitudinal biodiversity gradient. palaeoverse provides functionality for generating latitudinal bins of a given size, and binning those occurrences into the respective bins.
 :::
 
 ## Spatial occurrence binning {.smaller}
@@ -463,7 +467,7 @@ head(ex3)
 ```
 
 ::: notes
-In order to study the past distribution of taxa, the palaeogeographic position of fossil occurrences need to be reconstructed using plate rotation models. The palaeorotate function provides to methods to reconstruct palaeocoordinates for fossil occurrences. The first method, point, uses the GPlates Web Service, which estimates palaeocoordinates for point data, with eight different models available. The second method, grid, uses pre-generated reconstruction files of a 1° x 1° grid to estimate palaeocoordinates. This approach is much faster than the point method for large datasets, and also allows easy exploration. Additional functionality for the second method allows the user to calculate the palaeogeographic uncertainty in reconstructions from across the eight available models with the palaeolatitudinal range and maximum circle distance between points calculated.
+In order to study the past distribution of taxa, the palaeogeographic position of fossil occurrences need to be reconstructed using plate rotation models. The palaeorotate function provides two methods to reconstruct palaeocoordinates for fossil occurrences. The first method, "point", uses the GPlates Web Service, which estimates palaeocoordinates for point data, with eight different models available. The second method, "grid", uses pre-generated reconstruction files of a 1° x 1° grid to estimate palaeocoordinates. This approach is much faster than the point method for large datasets, and also allows easy exploration. Additional functionality for the second method allows the user to calculate the palaeogeographic uncertainty in reconstructions from across the eight available models with the palaeolatitudinal range and maximum circle distance between points calculated.
 :::
 
 ## Taxonomic spell check {.smaller}
@@ -498,7 +502,7 @@ In this example dataset:
 -   Varanopus belongs to the Captorhinidae
 
 ::: notes
-When working with large occurrence datasets, errors can easily creep into data. One frequently encountered issue is spelling variations of the same taxon name. This can have undesirable consequences when calculating metrics such as taxonomic richness. The tax check function computes character string distances between taxonomic names and returns those under a user-defined dissimilarity threshold. The function can also be used within groups such as here with family. As you can see this might be appropriate in some instances. While the flagged taxonomic names are similar from spelling perspective, these taxa belong to different families.
+When working with large occurrence datasets, errors can easily creep into data. One frequently encountered issue is spelling variations of the same taxon name. This can have undesirable consequences when calculating metrics such as taxonomic richness. The tax check function computes character string distances between taxonomic names and returns those under a user-defined dissimilarity threshold. The function can also be used within groups such as here with family. As you can see this might be appropriate in some instances. While flagged taxonomic names can be similar in spelling, taxa can belong to different families.
 :::
 
 ## Unique taxa {.smaller}
@@ -661,7 +665,7 @@ Link and match interval names to the Geological Time Scale:
 ```{r}
 #| collapse: true
 ## Link numeric age values
-# create exemplary df
+# Create exemplary df
 occdf <- data.frame(name = c("A", "B", "C"),
                     early_interval = c("Maastrichtian",
                                        "Campanian",
@@ -669,7 +673,7 @@ occdf <- data.frame(name = c("A", "B", "C"),
                     late_interval = c("Maastrichtian",
                                       "Campanian",
                                       "Bartonian"))
-# assign stages and numerical ages
+# Assign stages and numerical ages
 occdf <- look_up(occdf)
 
 ## Use exemplary int_key
@@ -677,7 +681,7 @@ occdf <- look_up(occdf)
 occdf <- reefs
 # Get internal interval key
 int_key <- interval_key
-# assign stages and numerical ages
+# Assign stages and numerical ages
 occdf <- look_up(occdf,
                 early_interval = "interval",
                 late_interval = "interval",
@@ -742,7 +746,7 @@ ex3 <- group_apply(occdf = occdf,
 ```
 
 ::: notes
-As with most fields, we often want to analyse our data in groups. In palaeoverse, we provide the function group_apply as a wrapper function to run functions over groups of data. For example, if we can calculate the number of occurrences per country in this example, or use the function unique taxa per collection in this example. The group apply function also allows you to run function over multiple grouping variables, for example in the third example we calculate the number of occurrences per unique collection and geological formation combination.
+As with most fields, we often want to analyse our data in groups. In palaeoverse, we provide the function group apply as a wrapper function to run functions over groups of data. For example, if we want to calculate the number of occurrences per country in this example, or use the function tax unique per collection in this example. The group apply function also allows the user to run function over multiple grouping variables, for example in the third example we calculate the number of occurrences per unique collection and geological formation combination.
 :::
 
 # What's next? {.smaller}
@@ -782,7 +786,7 @@ So, that's it on current functionality. I appreciate that was slapdash introduct
 :::
 
 ::: notes
-We have quite a lot of plans going forward! The team is currently in the process of putting together a Palaeobiology CRAN Task view and has started development on a Shiny App for non-R users. We also plan to host a workshop and hackathon next September at UCL, funding depending. Which is something we are also actively working on now, securing funds to continue our work on this project and support its growth. Finally, we hope your involvement is what's next! If you have functions which you think would be useful for the broader palaeobiological community, please do consider submitting a pull request on the palaeoverse repository!
+We have quite a lot of plans going forward! The team is currently in the process of putting together a Palaeobiology CRAN Task view and has started development on a Shiny App for non-R users. We also plan to host a workshop and hackathon next September at UCL, funding depdendent. Which is something we are also actively working on now, securing funds to continue our work on this project and support its growth. Finally, we hope your involvement is what's next! If you have functions which you think would be useful for the broader palaeobiological community, please do consider submitting a pull request on the palaeoverse repository! We would also love to hear any feedback on the package you might have.
 :::
 
 ## Thank-you / Merci / Gracias / Danke / Obrigado / Grazie / Ευχαριστώ {.smaller}
@@ -808,5 +812,5 @@ We have quite a lot of plans going forward! The team is currently in the process
 :::
 
 ::: notes
-All that is left to say is a big thank you from myself and the development team for joining. You can find general information about the palaeoverse R package on our website, and news and updates on the project on Twitter. We have also established a google group to serve as a community space, which we welcome you all to join. And a final bit of self promotion, our pre-print on palaeoverse is now available on EarthArXiv! Thank you for listening.
+All that is left to say is a big thank you from myself and the development team for listening. You can find general information about the palaeoverse R package on our website, and news and updates on the project on Twitter (providing Elon Musk doesn't burn it to the ground). We have also established a Google Group to serve as a community space, which we welcome you all to join. This group is setup to act as a space to share ideas and resources, advertise opportunities, and generally network with colleagues. And a final bit of self promotion, our pre-print on palaeoverse is now available on EarthArXiv, if you wish to check it out! Thank you for listening.
 :::
