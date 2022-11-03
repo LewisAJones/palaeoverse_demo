@@ -104,7 +104,7 @@ So, what exactly is palaeoverse? Well, the palaeoverse project aims to bring the
 ::: notes
 One such effort on this front is the palaeoverse R package.
 
-R and R packages are an integral part of quantitative research in palaeobiology today, with R code frequently used for data cleaning, analyses and data visualisation. In palaeobiology, these tools are frequently borrowed or repurposed from ecology (e.g. vegan and iNEXT). While packages exist to support fossil data analyses (e.g. claddis and divDyn), there is a lack of packages to support fossil data preparation or exploration. This results in the community over producing their own custom scripts.
+R and R packages are an integral part of quantitative research in palaeobiology today, with R code frequently used for data cleaning, analyses and data visualisation. In palaeobiology, these tools are frequently borrowed or repurposed from ecology (e.g. vegan and iNEXT). While packages exist to support fossil data analyses (e.g. claddis and divDyn), there is a lack of packages to support fossil data preparation or exploration. This results in the community often producing their own custom scripts.
 
 The palaeoverse package provides auxiliary functions to support data preparation and exploration, with the intention of improving code readability, reusability and reproducibility.
 :::
