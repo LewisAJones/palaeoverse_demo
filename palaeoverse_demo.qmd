@@ -16,9 +16,11 @@ execute:
   eval: true
 format: 
   revealjs:
-    logo: "/images/logo.png"
+    logo: "images/logo.png"
     footer: "[palaeoverse: A community-driven R package](https://palaeoverse.org)"
     theme: default
+    embed-resources: true
+    output-file: "index.html"
 ---
 
 ## Development team {.smaller}
