@@ -17,7 +17,7 @@ execute:
 format: 
   revealjs:
     logo: "/images/logo.png"
-    footer: "[palaeoverse: a community-driven R package](https://palaeoverse.org)"
+    footer: "[palaeoverse: A community-driven R package](https://palaeoverse.org)"
     theme: default
 ---
 
@@ -130,7 +130,7 @@ So, just another R package?
 
 ::: fragment
 -   **A community-driven package**
-    -   <http://www.palaeoverse.org> ![](images/chris-pratt.jpg){.absolute top="80" right="30" width="480" height="300"}
+    -   <http://palaeoverse.palaeoverse.org> ![](images/chris-pratt.jpg){.absolute top="80" right="30" width="480" height="300"}
 :::
 
 ::: notes
@@ -333,6 +333,27 @@ head(bins, n = 3)
 First up, we have the time bins function, which can be used to extract time bins based on the Geological Time Scale. The user can request different ranks of intervals such as stage, period, epoch, etc. The user can also call intervals based on interval names or an age range and plot the time bins if desired.
 :::
 
+## Macrostrat time bins {.smaller}
+
+```{r}
+#| collapse: true
+#| out-width: 50%
+#| fig-width: 8
+#| fig-align: center
+# Get North American Land Mammal Ages
+bins <- time_bins(scale = "North American Land Mammal Ages", plot = TRUE)
+```
+
+```{r}
+#| collapse: true
+# Get first few rows
+head(bins, n = 3)
+```
+
+::: notes
+First up, we have the time bins function, which can be used to extract time bins based on the Geological Time Scale. The user can request different ranks of intervals such as stage, period, epoch, etc. The user can also call intervals based on interval names or an age range and plot the time bins if desired.
+:::
+
 ## Near-equal-length time bins {.smaller}
 
 ```{r}
@@ -378,7 +399,7 @@ ex3 <- bin_time(occdf = occdf, bins = bins, method = "majority")
 # Randomly assign to overlapping bins based on fossil occurrence age range
 ex4 <- bin_time(occdf = occdf, bins = bins, method = "random", reps = 10)
 
-# Randomly assign point estimates (uniform distribution) based on fossil occurrence age range
+# Randomly assign point estimates (e.g. uniform distribution) based on fossil occurrence age range
 ex5 <- bin_time(occdf = occdf, bins = bins, method = "point", reps = 10)
 ```
 
@@ -433,7 +454,15 @@ Generate and bin spatial data:
 # Get reef data
 occdf <- reefs[1:500, ]
 # Bin data using a hexagonal equal-area grid
-occdf <- bin_space(occdf = occdf, spacing = 250, plot = TRUE)
+occdf <- bin_space(occdf = occdf, spacing = 250, return = TRUE)
+# Plot world and grid using ggplot2
+library(ggplot2)
+library(rnaturalearth)
+world <- ne_countries(scale = "small",returnclass = "sf")
+ggplot() +
+  geom_sf(data = world, colour = "black", fill = "lightgrey") + 
+  geom_sf(data = occdf$grid, fill = "orange", colour = "black") + 
+  theme_void()
 ```
 
 ::: notes
@@ -806,8 +835,8 @@ We have quite a lot of plans going forward! The team is currently in the process
 ::: {.column width="50%"}
 -   **Point of contact**: General contact
     -   [LewisAlan.Jones\@uvigo.es](mailto:LewisAlan.Jones@uvigo.es)
--   **Pre-print**: Available now!
-    -   <https://doi.org/10.31223/X5Z94Q>
+-   **Publication**: Available now!
+    -   <https://doi.org/10.1111/2041-210X.14099>
 :::
 :::
 
